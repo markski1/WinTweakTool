@@ -25,6 +25,12 @@ namespace WinTweakTool
 
             int total = (hours * 3600) + (minutes * 60);
 
+            if (total <= 0)
+            {
+                MessageBox.Show("You must set a delay of at least 1 minute.");
+                return;
+            }
+
             System.Diagnostics.Process cmd = new();
 
             cmd.StartInfo.FileName = "shutdown";
@@ -49,11 +55,6 @@ namespace WinTweakTool
             cmd.Dispose();
 
             MessageBox.Show($"The scheduled shutdown (if any) has been cancelled.");
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

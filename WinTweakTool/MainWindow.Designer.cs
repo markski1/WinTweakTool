@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.DesktopTweaksButton = new System.Windows.Forms.Button();
             this.CommonTweaksButton = new System.Windows.Forms.Button();
             this.WindowsToolsButton = new System.Windows.Forms.Button();
@@ -37,17 +36,9 @@
             this.ShutdownSchedButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.WinVerText = new System.Windows.Forms.Label();
+            this.WebLink = new System.Windows.Forms.LinkLabel();
+            this.NotAdminText = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 270);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "https://markski.ar";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // DesktopTweaksButton
             // 
@@ -57,6 +48,7 @@
             this.DesktopTweaksButton.TabIndex = 2;
             this.DesktopTweaksButton.Text = "Desktop settings";
             this.DesktopTweaksButton.UseVisualStyleBackColor = true;
+            this.DesktopTweaksButton.Click += new System.EventHandler(this.DesktopTweaksButton_Click);
             // 
             // CommonTweaksButton
             // 
@@ -75,6 +67,7 @@
             this.WindowsToolsButton.TabIndex = 5;
             this.WindowsToolsButton.Text = "Windows Tools";
             this.WindowsToolsButton.UseVisualStyleBackColor = true;
+            this.WindowsToolsButton.Click += new System.EventHandler(this.WindowsToolsButton_Click);
             // 
             // label2
             // 
@@ -118,17 +111,42 @@
             // WinVerText
             // 
             this.WinVerText.AutoSize = true;
-            this.WinVerText.Location = new System.Drawing.Point(10, 130);
+            this.WinVerText.Location = new System.Drawing.Point(12, 157);
             this.WinVerText.Name = "WinVerText";
             this.WinVerText.Size = new System.Drawing.Size(47, 15);
             this.WinVerText.TabIndex = 10;
             this.WinVerText.Text = "WinVer:";
+            // 
+            // WebLink
+            // 
+            this.WebLink.AutoSize = true;
+            this.WebLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.WebLink.LinkColor = System.Drawing.Color.Navy;
+            this.WebLink.Location = new System.Drawing.Point(12, 273);
+            this.WebLink.Name = "WebLink";
+            this.WebLink.Size = new System.Drawing.Size(101, 15);
+            this.WebLink.TabIndex = 11;
+            this.WebLink.TabStop = true;
+            this.WebLink.Text = "https://markski.ar";
+            this.WebLink.VisitedLinkColor = System.Drawing.Color.Navy;
+            this.WebLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.WebLink_LinkClicked);
+            // 
+            // NotAdminText
+            // 
+            this.NotAdminText.AutoSize = true;
+            this.NotAdminText.Location = new System.Drawing.Point(12, 130);
+            this.NotAdminText.Name = "NotAdminText";
+            this.NotAdminText.Size = new System.Drawing.Size(106, 15);
+            this.NotAdminText.TabIndex = 12;
+            this.NotAdminText.Text = "Running as admin.";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(384, 300);
+            this.Controls.Add(this.NotAdminText);
+            this.Controls.Add(this.WebLink);
             this.Controls.Add(this.WinVerText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShutdownSchedButton);
@@ -137,8 +155,10 @@
             this.Controls.Add(this.WindowsToolsButton);
             this.Controls.Add(this.CommonTweaksButton);
             this.Controls.Add(this.DesktopTweaksButton);
-            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WTTk 0.1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -146,7 +166,6 @@
         }
 
         #endregion
-        private Label label1;
         private Button DesktopTweaksButton;
         private Button CommonTweaksButton;
         private Button WindowsToolsButton;
@@ -155,5 +174,7 @@
         private Button ShutdownSchedButton;
         private Label label3;
         private Label WinVerText;
+        private LinkLabel WebLink;
+        private Label NotAdminText;
     }
 }
