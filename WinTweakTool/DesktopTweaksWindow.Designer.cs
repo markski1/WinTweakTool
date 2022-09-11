@@ -41,6 +41,7 @@
             this.SettingsBox.Name = "SettingsBox";
             this.SettingsBox.Size = new System.Drawing.Size(226, 130);
             this.SettingsBox.TabIndex = 1;
+            this.SettingsBox.SelectedIndexChanged += new System.EventHandler(this.SettingsBox_SelectedIndexChanged);
             // 
             // ApplyButton
             // 
@@ -50,6 +51,7 @@
             this.ApplyButton.TabIndex = 2;
             this.ApplyButton.Text = "Apply";
             this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // DesktopTweaksWindow
             // 

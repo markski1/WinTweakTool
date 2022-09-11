@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinTweakTool
+﻿namespace WinTweakTool
 {
     public partial class DesktopTweaksWindow : Form
     {
@@ -17,7 +7,12 @@ namespace WinTweakTool
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void SettingsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
         {
 
         }

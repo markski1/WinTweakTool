@@ -50,7 +50,9 @@ namespace WinTweakTool
 
         private void WindowsToolsButton_Click(object sender, EventArgs e)
         {
-            
+            WinToolsWindow ToolsDialog = new();
+            ToolsDialog.ShowDialog();
+            ToolsDialog.Dispose();
         }
 
         private void DesktopTweaksButton_Click(object sender, EventArgs e)
@@ -58,6 +60,11 @@ namespace WinTweakTool
             DesktopTweaksWindow DesktopDialog = new();
             DesktopDialog.ShowDialog();
             DesktopDialog.Dispose();
+        }
+
+        private void CommonTweaksButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

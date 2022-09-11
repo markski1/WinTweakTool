@@ -58,6 +58,7 @@
             this.CommonTweaksButton.TabIndex = 3;
             this.CommonTweaksButton.Text = "Common tweaks";
             this.CommonTweaksButton.UseVisualStyleBackColor = true;
+            this.CommonTweaksButton.Click += new System.EventHandler(this.CommonTweaksButton_Click);
             // 
             // WindowsToolsButton
             // 
@@ -76,8 +77,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 75);
             this.label2.TabIndex = 6;
-            this.label2.Text = "WindowsTweakToolkit v0.1\r\n\r\nIf changes don\'t apply, try \r\nrestarting explorer.exe" +
-    " with\r\nthe button below.";
+            this.label2.Text = "WindowsTweakToolkit\r\n\r\nIf changes don\'t apply, try \r\nrestarting explorer.exe with" +
+    "\r\nthe button below.";
             // 
             // RestartExplorerButton
             // 
