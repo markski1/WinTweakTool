@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 180);
+            this.ClientSize = new System.Drawing.Size(250, 181);
             this.Controls.Add(this.CancelShutdown);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);

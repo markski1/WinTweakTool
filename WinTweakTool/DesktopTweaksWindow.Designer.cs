@@ -57,13 +57,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 183);
+            this.ClientSize = new System.Drawing.Size(250, 181);
             this.Controls.Add(this.ApplyButton);
             this.Controls.Add(this.SettingsBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DesktopTweaksWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Desktop Settings";
             this.ResumeLayout(false);
 

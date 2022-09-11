@@ -52,7 +52,7 @@
             // 
             // CommonTweaksButton
             // 
-            this.CommonTweaksButton.Location = new System.Drawing.Point(179, 72);
+            this.CommonTweaksButton.Location = new System.Drawing.Point(179, 68);
             this.CommonTweaksButton.Name = "CommonTweaksButton";
             this.CommonTweaksButton.Size = new System.Drawing.Size(194, 39);
             this.CommonTweaksButton.TabIndex = 3;
@@ -62,7 +62,7 @@
             // 
             // WindowsToolsButton
             // 
-            this.WindowsToolsButton.Location = new System.Drawing.Point(179, 130);
+            this.WindowsToolsButton.Location = new System.Drawing.Point(179, 122);
             this.WindowsToolsButton.Name = "WindowsToolsButton";
             this.WindowsToolsButton.Size = new System.Drawing.Size(194, 39);
             this.WindowsToolsButton.TabIndex = 5;
@@ -82,7 +82,7 @@
             // 
             // RestartExplorerButton
             // 
-            this.RestartExplorerButton.Location = new System.Drawing.Point(180, 199);
+            this.RestartExplorerButton.Location = new System.Drawing.Point(180, 192);
             this.RestartExplorerButton.Name = "RestartExplorerButton";
             this.RestartExplorerButton.Size = new System.Drawing.Size(193, 39);
             this.RestartExplorerButton.TabIndex = 7;
@@ -92,7 +92,7 @@
             // 
             // ShutdownSchedButton
             // 
-            this.ShutdownSchedButton.Location = new System.Drawing.Point(180, 249);
+            this.ShutdownSchedButton.Location = new System.Drawing.Point(180, 243);
             this.ShutdownSchedButton.Name = "ShutdownSchedButton";
             this.ShutdownSchedButton.Size = new System.Drawing.Size(193, 39);
             this.ShutdownSchedButton.TabIndex = 8;
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 172);
+            this.label3.Location = new System.Drawing.Point(10, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(362, 15);
             this.label3.TabIndex = 9;
@@ -112,7 +112,7 @@
             // WinVerText
             // 
             this.WinVerText.AutoSize = true;
-            this.WinVerText.Location = new System.Drawing.Point(12, 157);
+            this.WinVerText.Location = new System.Drawing.Point(12, 145);
             this.WinVerText.Name = "WinVerText";
             this.WinVerText.Size = new System.Drawing.Size(47, 15);
             this.WinVerText.TabIndex = 10;
@@ -123,7 +123,7 @@
             this.WebLink.AutoSize = true;
             this.WebLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.WebLink.LinkColor = System.Drawing.Color.Navy;
-            this.WebLink.Location = new System.Drawing.Point(12, 273);
+            this.WebLink.Location = new System.Drawing.Point(10, 267);
             this.WebLink.Name = "WebLink";
             this.WebLink.Size = new System.Drawing.Size(101, 15);
             this.WebLink.TabIndex = 11;
@@ -135,7 +135,7 @@
             // NotAdminText
             // 
             this.NotAdminText.AutoSize = true;
-            this.NotAdminText.Location = new System.Drawing.Point(12, 130);
+            this.NotAdminText.Location = new System.Drawing.Point(12, 116);
             this.NotAdminText.Name = "NotAdminText";
             this.NotAdminText.Size = new System.Drawing.Size(106, 15);
             this.NotAdminText.TabIndex = 12;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(384, 300);
+            this.ClientSize = new System.Drawing.Size(384, 291);
             this.Controls.Add(this.NotAdminText);
             this.Controls.Add(this.WebLink);
             this.Controls.Add(this.WinVerText);
@@ -160,7 +160,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WTTk 0.1";
+            this.Text = "WTTk 0.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 

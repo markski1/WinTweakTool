@@ -42,9 +42,9 @@
             // 
             // RegeditBtn
             // 
-            this.RegeditBtn.Location = new System.Drawing.Point(12, 12);
+            this.RegeditBtn.Location = new System.Drawing.Point(10, 8);
             this.RegeditBtn.Name = "RegeditBtn";
-            this.RegeditBtn.Size = new System.Drawing.Size(122, 34);
+            this.RegeditBtn.Size = new System.Drawing.Size(116, 34);
             this.RegeditBtn.TabIndex = 0;
             this.RegeditBtn.Text = "Registry Editor";
             this.RegeditBtn.UseVisualStyleBackColor = true;
@@ -52,9 +52,9 @@
             // 
             // MmcBtn
             // 
-            this.MmcBtn.Location = new System.Drawing.Point(144, 12);
+            this.MmcBtn.Location = new System.Drawing.Point(132, 8);
             this.MmcBtn.Name = "MmcBtn";
-            this.MmcBtn.Size = new System.Drawing.Size(122, 43);
+            this.MmcBtn.Size = new System.Drawing.Size(118, 43);
             this.MmcBtn.TabIndex = 1;
             this.MmcBtn.Text = "MS Management Console";
             this.MmcBtn.UseVisualStyleBackColor = true;
@@ -62,9 +62,9 @@
             // 
             // DskMgrBtn
             // 
-            this.DskMgrBtn.Location = new System.Drawing.Point(144, 58);
+            this.DskMgrBtn.Location = new System.Drawing.Point(132, 54);
             this.DskMgrBtn.Name = "DskMgrBtn";
-            this.DskMgrBtn.Size = new System.Drawing.Size(122, 28);
+            this.DskMgrBtn.Size = new System.Drawing.Size(118, 28);
             this.DskMgrBtn.TabIndex = 5;
             this.DskMgrBtn.Text = "Disk Management";
             this.DskMgrBtn.UseVisualStyleBackColor = true;
@@ -72,9 +72,9 @@
             // 
             // DevMgrBtn
             // 
-            this.DevMgrBtn.Location = new System.Drawing.Point(144, 88);
+            this.DevMgrBtn.Location = new System.Drawing.Point(132, 84);
             this.DevMgrBtn.Name = "DevMgrBtn";
-            this.DevMgrBtn.Size = new System.Drawing.Size(122, 42);
+            this.DevMgrBtn.Size = new System.Drawing.Size(118, 42);
             this.DevMgrBtn.TabIndex = 7;
             this.DevMgrBtn.Text = "Device Management";
             this.DevMgrBtn.UseVisualStyleBackColor = true;
@@ -82,9 +82,9 @@
             // 
             // EventVwrBtn
             // 
-            this.EventVwrBtn.Location = new System.Drawing.Point(12, 92);
+            this.EventVwrBtn.Location = new System.Drawing.Point(10, 88);
             this.EventVwrBtn.Name = "EventVwrBtn";
-            this.EventVwrBtn.Size = new System.Drawing.Size(122, 34);
+            this.EventVwrBtn.Size = new System.Drawing.Size(116, 34);
             this.EventVwrBtn.TabIndex = 8;
             this.EventVwrBtn.Text = "Event Viewer";
             this.EventVwrBtn.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             // 
             // DxDiagBtn
             // 
-            this.DxDiagBtn.Location = new System.Drawing.Point(12, 52);
+            this.DxDiagBtn.Location = new System.Drawing.Point(10, 48);
             this.DxDiagBtn.Name = "DxDiagBtn";
-            this.DxDiagBtn.Size = new System.Drawing.Size(122, 34);
+            this.DxDiagBtn.Size = new System.Drawing.Size(116, 34);
             this.DxDiagBtn.TabIndex = 9;
             this.DxDiagBtn.Text = "DX Diagnostics";
             this.DxDiagBtn.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             // ResMonBtn
             // 
-            this.ResMonBtn.Location = new System.Drawing.Point(12, 132);
+            this.ResMonBtn.Location = new System.Drawing.Point(10, 128);
             this.ResMonBtn.Name = "ResMonBtn";
-            this.ResMonBtn.Size = new System.Drawing.Size(122, 34);
+            this.ResMonBtn.Size = new System.Drawing.Size(116, 34);
             this.ResMonBtn.TabIndex = 10;
             this.ResMonBtn.Text = "Resource Monitor";
             this.ResMonBtn.UseVisualStyleBackColor = true;
@@ -112,9 +112,9 @@
             // 
             // SysInfoBtn
             // 
-            this.SysInfoBtn.Location = new System.Drawing.Point(144, 136);
+            this.SysInfoBtn.Location = new System.Drawing.Point(132, 132);
             this.SysInfoBtn.Name = "SysInfoBtn";
-            this.SysInfoBtn.Size = new System.Drawing.Size(122, 30);
+            this.SysInfoBtn.Size = new System.Drawing.Size(118, 30);
             this.SysInfoBtn.TabIndex = 11;
             this.SysInfoBtn.Text = "System Info";
             this.SysInfoBtn.UseVisualStyleBackColor = true;
@@ -122,9 +122,9 @@
             // 
             // NTConfigBtn
             // 
-            this.NTConfigBtn.Location = new System.Drawing.Point(12, 172);
+            this.NTConfigBtn.Location = new System.Drawing.Point(10, 168);
             this.NTConfigBtn.Name = "NTConfigBtn";
-            this.NTConfigBtn.Size = new System.Drawing.Size(122, 34);
+            this.NTConfigBtn.Size = new System.Drawing.Size(116, 34);
             this.NTConfigBtn.TabIndex = 12;
             this.NTConfigBtn.Text = "NT Configuration";
             this.NTConfigBtn.UseVisualStyleBackColor = true;
@@ -132,9 +132,9 @@
             // 
             // ServicesBtn
             // 
-            this.ServicesBtn.Location = new System.Drawing.Point(144, 172);
+            this.ServicesBtn.Location = new System.Drawing.Point(132, 168);
             this.ServicesBtn.Name = "ServicesBtn";
-            this.ServicesBtn.Size = new System.Drawing.Size(122, 34);
+            this.ServicesBtn.Size = new System.Drawing.Size(118, 34);
             this.ServicesBtn.TabIndex = 13;
             this.ServicesBtn.Text = "Services";
             this.ServicesBtn.UseVisualStyleBackColor = true;
@@ -144,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 216);
+            this.ClientSize = new System.Drawing.Size(260, 209);
             this.Controls.Add(this.ServicesBtn);
             this.Controls.Add(this.NTConfigBtn);
             this.Controls.Add(this.SysInfoBtn);
