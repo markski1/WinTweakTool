@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinTweakTool
+﻿namespace WinTweakTool
 {
     public partial class CommonTweaksWindow : Form
     {
@@ -85,7 +75,130 @@ namespace WinTweakTool
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
+            Microsoft.Win32.RegistryKey? key;
+                
 
+            // Windows Maintenance option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", 
+                keyName: "MaintenanceDisabled", 
+                setValue: 1, 
+                key: key, 
+                userChoise: WinMan.Checked, 
+                errName: "CT1",
+                localMachine: true);
+
+
+
+            // Windows Defender option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows Defender");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows Defender",
+                keyName: "DisableAntiSpyware",
+                setValue: 1,
+                key: key,
+                userChoise: WinDef.Checked,
+                errName: "CT2",
+                localMachine: true);                
+
+
+
+            // Disable Cortana option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+                keyName: "AllowCortana",
+                setValue: 0,
+                key: key,
+                userChoise: Cortana.Checked,
+                errName: "CT3-4",
+                localMachine: true);
+
+
+
+            // Disable search internet suggestions option
+            // No need to re-set key
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+                keyName: "DisableWebSearch",
+                setValue: 1,
+                key: key,
+                userChoise: SearchNet.Checked,
+                errName: "CT3-4",
+                localMachine: true);
+
+
+
+            // Disable startup delay option
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize",
+                keyName: "StartupDelayInMSec",
+                setValue: 0,
+                key: key,
+                userChoise: StartupDelay.Checked,
+                errName: "CT5",
+                localMachine: false);
+
+
+
+            // Disable app tracking option
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\EdgeUI");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Policies\\Microsoft\\Windows\\EdgeUI",
+                keyName: "DisableMFUTracking",
+                setValue: 1,
+                key: key,
+                userChoise: AppTracking.Checked,
+                errName: "CT6",
+                localMachine: false);
+
+
+
+            // Disable error reporting option
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\Windows Error Reporting");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\Windows Error Reporting",
+                keyName: "Disabled",
+                setValue: 1,
+                key: key,
+                userChoise: ErrorReporting.Checked,
+                errName: "CT7",
+                localMachine: false);
+
+
+
+            // Disable app suggestion on start option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("Software\\Microsoft\\Windows\\Windows Error Reporting");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+                keyName: "DisableWindowsConsumerFeatures",
+                setValue: 1,
+                key: key,
+                userChoise: StartSuggestions.Checked,
+                errName: "CT8",
+                localMachine: true);
+
+
+            MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
+        }
+
+        private void WinDef_CheckedChanged(object sender, EventArgs e)
+        {
+            if (WinDef.Checked)
+            {
+                MessageBox.Show(
+                    "Attention!\n\nRunning your computer with no anti-virus is not worth whatever performance improvements you think you might get.\n\nI don't care if you're a super expert or a leet hacker, using an anti-virus is not beneath you. Modern system security is a lot more complex than \"I know what to download lol\"\n\nThis option exists because I am of the belief that you should be able to do whatever you want with your own computer. But be advised, this is a very stupid idea.\n\nIf you really dislike Windows Defender, do at least consider replacing it with another AV solution rather than running with no AV at all."
+                );
+            }
         }
     }
 }

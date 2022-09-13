@@ -33,7 +33,7 @@ namespace WinTweakTool
             }
 
             // check if taskbar clock is already showing seconds
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "ShowSecondsInSystemClock", 1);
+            enabled = RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "ShowSecondsInSystemClock", 1);
             if (enabled)
             {
                 ClockSeconds.Checked = true;
@@ -69,7 +69,7 @@ namespace WinTweakTool
                 }
             }
 
-            key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
+            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
             if (key is not null)
             {
                 if (ClockSeconds.Checked)
@@ -83,7 +83,14 @@ namespace WinTweakTool
                 {
                     key.SetValue("ShowSecondsInSystemClock", 0);
                 }
+            }
+            else
+            {
+                MessageBox.Show("There was an error accesing certain registry values.");
+            }
 
+            key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
+            if (key is not null) { 
                 if (TaskbarTrans.Checked)
                 {
                     if (Convert.ToInt32(key.GetValue("UseOLEDTaskbarTransparency")) != 1)
@@ -100,14 +107,7 @@ namespace WinTweakTool
             {
                 MessageBox.Show("There was an error accesing certain registry values.");
             }
-
-
-            MessageBox.Show("Done. Use the \"Restart explorer.exe\" button to apply.");
-        }
-
-        private void DesktopIndicatorChk_CheckedChanged(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Changes applied. \n\nRestarting explorer.exe might be needed.");
         }
     }
 }

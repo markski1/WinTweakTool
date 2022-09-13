@@ -69,6 +69,7 @@
             this.WinDef.TabIndex = 3;
             this.WinDef.Text = "Disable Windows defender";
             this.WinDef.UseVisualStyleBackColor = true;
+            this.WinDef.CheckedChanged += new System.EventHandler(this.WinDef_CheckedChanged);
             // 
             // Cortana
             // 
