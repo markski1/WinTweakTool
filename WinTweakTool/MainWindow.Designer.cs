@@ -160,7 +160,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WTTk 0.2";
+            this.Text = "WTTk 0.3";
             this.ResumeLayout(false);
             this.PerformLayout();
 

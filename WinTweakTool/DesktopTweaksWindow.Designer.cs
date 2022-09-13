@@ -28,20 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SettingsBox = new System.Windows.Forms.CheckedListBox();
             this.ApplyButton = new System.Windows.Forms.Button();
+            this.DesktopIndicatorChk = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
-            // 
-            // SettingsBox
-            // 
-            this.SettingsBox.FormattingEnabled = true;
-            this.SettingsBox.Items.AddRange(new object[] {
-            "Hide desktop shortcuts"});
-            this.SettingsBox.Location = new System.Drawing.Point(12, 12);
-            this.SettingsBox.Name = "SettingsBox";
-            this.SettingsBox.Size = new System.Drawing.Size(226, 130);
-            this.SettingsBox.TabIndex = 1;
-            this.SettingsBox.SelectedIndexChanged += new System.EventHandler(this.SettingsBox_SelectedIndexChanged);
             // 
             // ApplyButton
             // 
@@ -53,13 +42,23 @@
             this.ApplyButton.UseVisualStyleBackColor = true;
             this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
+            // DesktopIndicatorChk
+            // 
+            this.DesktopIndicatorChk.AutoSize = true;
+            this.DesktopIndicatorChk.Location = new System.Drawing.Point(12, 12);
+            this.DesktopIndicatorChk.Name = "DesktopIndicatorChk";
+            this.DesktopIndicatorChk.Size = new System.Drawing.Size(150, 19);
+            this.DesktopIndicatorChk.TabIndex = 3;
+            this.DesktopIndicatorChk.Text = "Show desktop indicator";
+            this.DesktopIndicatorChk.UseVisualStyleBackColor = true;
+            // 
             // DesktopTweaksWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 181);
+            this.Controls.Add(this.DesktopIndicatorChk);
             this.Controls.Add(this.ApplyButton);
-            this.Controls.Add(this.SettingsBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -67,11 +66,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Desktop Settings";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private CheckedListBox SettingsBox;
         private Button ApplyButton;
+        private CheckBox DesktopIndicatorChk;
     }
 }
