@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.DesktopTweaksButton = new System.Windows.Forms.Button();
             this.CommonTweaksButton = new System.Windows.Forms.Button();
             this.WindowsToolsButton = new System.Windows.Forms.Button();
@@ -167,10 +168,11 @@
             this.Controls.Add(this.CommonTweaksButton);
             this.Controls.Add(this.DesktopTweaksButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WTTk 0.6";
+            this.Text = "WTTk 0.7";
             this.ResumeLayout(false);
             this.PerformLayout();
 

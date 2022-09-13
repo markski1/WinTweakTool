@@ -36,11 +36,7 @@
             enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1);
             if (enabled)
             {
-                enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "ConnectedSearchUseWeb", 0);
-                if (enabled)
-                {
-                    SearchNet.Checked = true;
-                }
+                SearchNet.Checked = true;
             }
 
             // check if startup delay is already set to 0
