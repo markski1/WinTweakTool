@@ -11,6 +11,9 @@
             if (key is not null)
             {
                 if (key.GetValue("29") is null) enabled = true;
+            } else
+            {
+                enabled = true;
             }
 
             if (enabled)
