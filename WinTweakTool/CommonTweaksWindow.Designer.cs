@@ -29,131 +29,110 @@
         private void InitializeComponent()
         {
             this.ApplyBtn = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.WinMan = new System.Windows.Forms.CheckBox();
+            this.WinDef = new System.Windows.Forms.CheckBox();
+            this.Cortana = new System.Windows.Forms.CheckBox();
+            this.SearchNet = new System.Windows.Forms.CheckBox();
+            this.StartupDelay = new System.Windows.Forms.CheckBox();
+            this.AppTracking = new System.Windows.Forms.CheckBox();
+            this.ErrorReporting = new System.Windows.Forms.CheckBox();
+            this.StartSuggestions = new System.Windows.Forms.CheckBox();
             this.HelpBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ApplyBtn
             // 
-            this.ApplyBtn.Location = new System.Drawing.Point(163, 277);
+            this.ApplyBtn.Location = new System.Drawing.Point(163, 222);
             this.ApplyBtn.Name = "ApplyBtn";
             this.ApplyBtn.Size = new System.Drawing.Size(75, 23);
             this.ApplyBtn.TabIndex = 0;
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
             // 
-            // checkBox1
+            // WinMan
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(188, 19);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Disable Windows maintenance";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.WinMan.AutoSize = true;
+            this.WinMan.Location = new System.Drawing.Point(12, 12);
+            this.WinMan.Name = "WinMan";
+            this.WinMan.Size = new System.Drawing.Size(188, 19);
+            this.WinMan.TabIndex = 2;
+            this.WinMan.Text = "Disable Windows maintenance";
+            this.WinMan.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // WinDef
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 37);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(166, 19);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Disable Windows defender";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.WinDef.AutoSize = true;
+            this.WinDef.Location = new System.Drawing.Point(12, 37);
+            this.WinDef.Name = "WinDef";
+            this.WinDef.Size = new System.Drawing.Size(166, 19);
+            this.WinDef.TabIndex = 3;
+            this.WinDef.Text = "Disable Windows defender";
+            this.WinDef.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // Cortana
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(12, 62);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(109, 19);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Disable Cortana";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.Cortana.AutoSize = true;
+            this.Cortana.Location = new System.Drawing.Point(12, 62);
+            this.Cortana.Name = "Cortana";
+            this.Cortana.Size = new System.Drawing.Size(109, 19);
+            this.Cortana.TabIndex = 4;
+            this.Cortana.Text = "Disable Cortana";
+            this.Cortana.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // SearchNet
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(12, 87);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(212, 19);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Disable Search internet suggestions";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.SearchNet.AutoSize = true;
+            this.SearchNet.Location = new System.Drawing.Point(12, 87);
+            this.SearchNet.Name = "SearchNet";
+            this.SearchNet.Size = new System.Drawing.Size(212, 19);
+            this.SearchNet.TabIndex = 5;
+            this.SearchNet.Text = "Disable Search internet suggestions";
+            this.SearchNet.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // StartupDelay
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(12, 112);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(135, 19);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "Disable startup delay";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.StartupDelay.AutoSize = true;
+            this.StartupDelay.Location = new System.Drawing.Point(12, 112);
+            this.StartupDelay.Name = "StartupDelay";
+            this.StartupDelay.Size = new System.Drawing.Size(135, 19);
+            this.StartupDelay.TabIndex = 6;
+            this.StartupDelay.Text = "Disable startup delay";
+            this.StartupDelay.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // AppTracking
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(12, 137);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(133, 19);
-            this.checkBox6.TabIndex = 7;
-            this.checkBox6.Text = "Disable app tracking";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.AppTracking.AutoSize = true;
+            this.AppTracking.Location = new System.Drawing.Point(12, 137);
+            this.AppTracking.Name = "AppTracking";
+            this.AppTracking.Size = new System.Drawing.Size(133, 19);
+            this.AppTracking.TabIndex = 7;
+            this.AppTracking.Text = "Disable app tracking";
+            this.AppTracking.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // ErrorReporting
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(12, 237);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(145, 19);
-            this.checkBox7.TabIndex = 8;
-            this.checkBox7.Text = "Show seconds in clock";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.ErrorReporting.AutoSize = true;
+            this.ErrorReporting.Location = new System.Drawing.Point(12, 162);
+            this.ErrorReporting.Name = "ErrorReporting";
+            this.ErrorReporting.Size = new System.Drawing.Size(144, 19);
+            this.ErrorReporting.TabIndex = 9;
+            this.ErrorReporting.Text = "Disable error reporting";
+            this.ErrorReporting.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // StartSuggestions
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(12, 162);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(144, 19);
-            this.checkBox8.TabIndex = 9;
-            this.checkBox8.Text = "Disable error reporting";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(12, 187);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(230, 19);
-            this.checkBox9.TabIndex = 10;
-            this.checkBox9.Text = "Disable app suggestions on start menu";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(12, 212);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(181, 19);
-            this.checkBox10.TabIndex = 11;
-            this.checkBox10.Text = "Increase taskbar transparency";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.StartSuggestions.AutoSize = true;
+            this.StartSuggestions.Location = new System.Drawing.Point(12, 187);
+            this.StartSuggestions.Name = "StartSuggestions";
+            this.StartSuggestions.Size = new System.Drawing.Size(230, 19);
+            this.StartSuggestions.TabIndex = 10;
+            this.StartSuggestions.Text = "Disable app suggestions on start menu";
+            this.StartSuggestions.UseVisualStyleBackColor = true;
             // 
             // HelpBtn
             // 
-            this.HelpBtn.Location = new System.Drawing.Point(12, 277);
+            this.HelpBtn.Location = new System.Drawing.Point(12, 222);
             this.HelpBtn.Name = "HelpBtn";
             this.HelpBtn.Size = new System.Drawing.Size(75, 23);
             this.HelpBtn.TabIndex = 12;
@@ -164,18 +143,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 312);
+            this.ClientSize = new System.Drawing.Size(250, 257);
             this.Controls.Add(this.HelpBtn);
-            this.Controls.Add(this.checkBox10);
-            this.Controls.Add(this.checkBox9);
-            this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.StartSuggestions);
+            this.Controls.Add(this.ErrorReporting);
+            this.Controls.Add(this.AppTracking);
+            this.Controls.Add(this.StartupDelay);
+            this.Controls.Add(this.SearchNet);
+            this.Controls.Add(this.Cortana);
+            this.Controls.Add(this.WinDef);
+            this.Controls.Add(this.WinMan);
             this.Controls.Add(this.ApplyBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -192,16 +169,14 @@
         #endregion
 
         private Button ApplyBtn;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox9;
-        private CheckBox checkBox10;
+        private CheckBox WinMan;
+        private CheckBox WinDef;
+        private CheckBox Cortana;
+        private CheckBox SearchNet;
+        private CheckBox StartupDelay;
+        private CheckBox AppTracking;
+        private CheckBox ErrorReporting;
+        private CheckBox StartSuggestions;
         private Button HelpBtn;
     }
 }

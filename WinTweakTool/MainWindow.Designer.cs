@@ -38,6 +38,7 @@
             this.WinVerText = new System.Windows.Forms.Label();
             this.WebLink = new System.Windows.Forms.LinkLabel();
             this.NotAdminText = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // DesktopTweaksButton
@@ -46,7 +47,7 @@
             this.DesktopTweaksButton.Name = "DesktopTweaksButton";
             this.DesktopTweaksButton.Size = new System.Drawing.Size(194, 39);
             this.DesktopTweaksButton.TabIndex = 2;
-            this.DesktopTweaksButton.Text = "Desktop settings";
+            this.DesktopTweaksButton.Text = "Desktop tweaks";
             this.DesktopTweaksButton.UseVisualStyleBackColor = true;
             this.DesktopTweaksButton.Click += new System.EventHandler(this.DesktopTweaksButton_Click);
             // 
@@ -62,7 +63,7 @@
             // 
             // WindowsToolsButton
             // 
-            this.WindowsToolsButton.Location = new System.Drawing.Point(179, 122);
+            this.WindowsToolsButton.Location = new System.Drawing.Point(180, 140);
             this.WindowsToolsButton.Name = "WindowsToolsButton";
             this.WindowsToolsButton.Size = new System.Drawing.Size(194, 39);
             this.WindowsToolsButton.TabIndex = 5;
@@ -75,10 +76,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 75);
+            this.label2.Size = new System.Drawing.Size(123, 15);
             this.label2.TabIndex = 6;
-            this.label2.Text = "WindowsTweakToolkit\r\n\r\nIf changes don\'t apply, try \r\nrestarting explorer.exe with" +
-    "\r\nthe button below.";
+            this.label2.Text = "WindowsTweakToolkit\r";
             // 
             // RestartExplorerButton
             // 
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 163);
+            this.label3.Location = new System.Drawing.Point(12, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(362, 15);
             this.label3.TabIndex = 9;
@@ -112,7 +112,7 @@
             // WinVerText
             // 
             this.WinVerText.AutoSize = true;
-            this.WinVerText.Location = new System.Drawing.Point(12, 145);
+            this.WinVerText.Location = new System.Drawing.Point(10, 92);
             this.WinVerText.Name = "WinVerText";
             this.WinVerText.Size = new System.Drawing.Size(47, 15);
             this.WinVerText.TabIndex = 10;
@@ -123,7 +123,7 @@
             this.WebLink.AutoSize = true;
             this.WebLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.WebLink.LinkColor = System.Drawing.Color.Navy;
-            this.WebLink.Location = new System.Drawing.Point(10, 267);
+            this.WebLink.Location = new System.Drawing.Point(12, 267);
             this.WebLink.Name = "WebLink";
             this.WebLink.Size = new System.Drawing.Size(101, 15);
             this.WebLink.TabIndex = 11;
@@ -135,17 +135,27 @@
             // NotAdminText
             // 
             this.NotAdminText.AutoSize = true;
-            this.NotAdminText.Location = new System.Drawing.Point(12, 116);
+            this.NotAdminText.Location = new System.Drawing.Point(10, 55);
             this.NotAdminText.Name = "NotAdminText";
             this.NotAdminText.Size = new System.Drawing.Size(106, 15);
             this.NotAdminText.TabIndex = 12;
             this.NotAdminText.Text = "Running as admin.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 30);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "If tweaks don\'t apply, click ->\r\nor restart your system.";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(384, 291);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.NotAdminText);
             this.Controls.Add(this.WebLink);
             this.Controls.Add(this.WinVerText);
@@ -160,7 +170,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WTTk 0.3";
+            this.Text = "WTTk 0.4";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +187,6 @@
         private Label WinVerText;
         private LinkLabel WebLink;
         private Label NotAdminText;
+        private Label label1;
     }
 }
