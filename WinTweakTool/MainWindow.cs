@@ -64,7 +64,9 @@ namespace WinTweakTool
 
         private void CommonTweaksButton_Click(object sender, EventArgs e)
         {
-
+            CommonTweaksWindow TweaksDialog = new();
+            TweaksDialog.ShowDialog();
+            TweaksDialog.Dispose();
         }
     }
 }

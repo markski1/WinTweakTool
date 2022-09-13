@@ -47,10 +47,11 @@
             this.DesktopIndicatorChk.AutoSize = true;
             this.DesktopIndicatorChk.Location = new System.Drawing.Point(12, 12);
             this.DesktopIndicatorChk.Name = "DesktopIndicatorChk";
-            this.DesktopIndicatorChk.Size = new System.Drawing.Size(150, 19);
+            this.DesktopIndicatorChk.Size = new System.Drawing.Size(146, 19);
             this.DesktopIndicatorChk.TabIndex = 3;
-            this.DesktopIndicatorChk.Text = "Show desktop indicator";
+            this.DesktopIndicatorChk.Text = "Hide desktop indicator";
             this.DesktopIndicatorChk.UseVisualStyleBackColor = true;
+            this.DesktopIndicatorChk.CheckedChanged += new System.EventHandler(this.DesktopIndicatorChk_CheckedChanged);
             // 
             // DesktopTweaksWindow
             // 
@@ -63,6 +64,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DesktopTweaksWindow";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Desktop Settings";
             this.ResumeLayout(false);

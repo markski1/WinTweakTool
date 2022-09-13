@@ -159,6 +159,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WinToolsWindow";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Windows Tools";
             this.ResumeLayout(false);
