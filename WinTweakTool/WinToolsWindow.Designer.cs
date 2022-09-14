@@ -161,7 +161,7 @@
             this.Name = "WinToolsWindow";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Windows Tools";
+            this.Text = "D";
             this.ResumeLayout(false);
 
         }

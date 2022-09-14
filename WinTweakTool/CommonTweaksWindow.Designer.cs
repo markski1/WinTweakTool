@@ -139,6 +139,7 @@
             this.HelpBtn.TabIndex = 12;
             this.HelpBtn.Text = "Help";
             this.HelpBtn.UseVisualStyleBackColor = true;
+            this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
             // 
             // CommonTweaksWindow
             // 

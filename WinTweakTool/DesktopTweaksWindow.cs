@@ -70,43 +70,25 @@ namespace WinTweakTool
             }
 
             key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
-            if (key is not null)
-            {
-                if (ClockSeconds.Checked)
-                {
-                    if (Convert.ToInt32(key.GetValue("ShowSecondsInSystemClock")) != 1)
-                    {
-                        key.SetValue("ShowSecondsInSystemClock", 1);
-                    }
-                }
-                else
-                {
-                    key.SetValue("ShowSecondsInSystemClock", 0);
-                }
-            }
-            else
-            {
-                MessageBox.Show("There was an error accesing certain registry values.");
-            }
 
-            key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
-            if (key is not null) { 
-                if (TaskbarTrans.Checked)
-                {
-                    if (Convert.ToInt32(key.GetValue("UseOLEDTaskbarTransparency")) != 1)
-                    {
-                        key.SetValue("UseOLEDTaskbarTransparency", 1);
-                    }
-                }
-                else
-                {
-                    key.SetValue("UseOLEDTaskbarTransparency", 0);
-                }
-            }
-            else
-            {
-                MessageBox.Show("There was an error accesing certain registry values.");
-            }
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                keyName: "ShowSecondsInSystemClock",
+                setValue: 1,
+                key: key,
+                userChoise: ClockSeconds.Checked,
+                errName: "DT1",
+                localMachine: false);
+            
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                keyName: "UseOLEDTaskbarTransparency",
+                setValue: 1,
+                key: key,
+                userChoise: TaskbarTrans.Checked,
+                errName: "DT2",
+                localMachine: true);
+
             MessageBox.Show("Changes applied. \n\nRestarting explorer.exe might be needed.");
         }
     }

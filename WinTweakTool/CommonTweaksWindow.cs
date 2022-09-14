@@ -196,5 +196,34 @@
                 );
             }
         }
+
+        private void HelpBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+@"- Disable Windows Maintenance
+Disables automated maintenance tasks like updates, security scanning and system diagnostics.
+
+- Disable Windows defender
+Disables the Windows Defender native antivirus.
+
+- Disable Cortana
+Disables the Cortana button and it's related voice functionality.
+
+- Disable Search internet suggestion
+Disables the taskbar Search function from poking Bing about things you search and giving you search suggestions.
+
+- Disable startup delay
+Windows will make a ~10 second delay on bootup to let things start up before showing you the desktop. This disables that behaviour.
+
+- Disable app tracking
+Disables Windows trying to figure out what applications you use often to suggest them.
+
+- Disable error reporting
+Disables Windows phoning home about errors and other odd behaviour.
+
+- Disable app suggestions on start menu
+Disables advert/suggested apps showing up on the Start Menu tiles."
+                );
+        }
     }
 }
