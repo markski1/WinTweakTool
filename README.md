@@ -26,8 +26,6 @@ If you find WTTk useful, you can throw a small donation [this way](https://marks
 ### TODO
 Things I plan to do and which I believe should be in place for v1.0:
 
-- Spanish localization
-- Dark mode support
 - More in-depth desktop tweaks
 - Whatever else gets suggested
 - Clear separation between UI code and Business code - While Visual Studio 2022 does a good job at keeping these two apart in practice, people who (for whatever god forsaken reason) use a C# IDE other than VS22 might have a hard time browsing through it.
