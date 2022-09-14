@@ -12,6 +12,11 @@ Check the [releases](https://github.com/markski1/WinTweakTool/releases) page and
 
 Building WTTk is trivial. Simply open the solution file and compile it. No 3rd party packages are used.
 
+The release executable is compiled with the following dotnet publish command
+```
+dotnet publish WinTweakToolApp --no-self-contained --runtime win-x64 -p:PublishReadyToRun=true -p:PublishSingleFile=true -c Release
+```
+
 ### Collaborate
 
 WTTk is heavily in-development. You can collaborate by opening issues with suggestions or bug reports, or by writing code and opening a pull request.
@@ -25,3 +30,4 @@ Things I plan to do and which I believe should be in place for v1.0:
 - Dark mode support
 - More in-depth desktop tweaks
 - Whatever else gets suggested
+- Clear separation between UI code and Business code - While Visual Studio 2022 does a good job at keeping these two apart in practice, people who (for whatever god forsaken reason) use a C# IDE other than VS22 might have a hard time browsing through it.
