@@ -44,7 +44,7 @@
             // 
             // DesktopTweaksButton
             // 
-            this.DesktopTweaksButton.Location = new System.Drawing.Point(179, 12);
+            this.DesktopTweaksButton.Location = new System.Drawing.Point(178, 12);
             this.DesktopTweaksButton.Name = "DesktopTweaksButton";
             this.DesktopTweaksButton.Size = new System.Drawing.Size(194, 39);
             this.DesktopTweaksButton.TabIndex = 2;
@@ -54,7 +54,7 @@
             // 
             // CommonTweaksButton
             // 
-            this.CommonTweaksButton.Location = new System.Drawing.Point(179, 68);
+            this.CommonTweaksButton.Location = new System.Drawing.Point(178, 68);
             this.CommonTweaksButton.Name = "CommonTweaksButton";
             this.CommonTweaksButton.Size = new System.Drawing.Size(194, 39);
             this.CommonTweaksButton.TabIndex = 3;
@@ -64,7 +64,7 @@
             // 
             // WindowsToolsButton
             // 
-            this.WindowsToolsButton.Location = new System.Drawing.Point(180, 140);
+            this.WindowsToolsButton.Location = new System.Drawing.Point(178, 193);
             this.WindowsToolsButton.Name = "WindowsToolsButton";
             this.WindowsToolsButton.Size = new System.Drawing.Size(194, 39);
             this.WindowsToolsButton.TabIndex = 5;
@@ -83,9 +83,9 @@
             // 
             // RestartExplorerButton
             // 
-            this.RestartExplorerButton.Location = new System.Drawing.Point(180, 192);
+            this.RestartExplorerButton.Location = new System.Drawing.Point(178, 141);
             this.RestartExplorerButton.Name = "RestartExplorerButton";
-            this.RestartExplorerButton.Size = new System.Drawing.Size(193, 39);
+            this.RestartExplorerButton.Size = new System.Drawing.Size(194, 39);
             this.RestartExplorerButton.TabIndex = 7;
             this.RestartExplorerButton.Text = "Restart explorer.exe";
             this.RestartExplorerButton.UseVisualStyleBackColor = true;
@@ -93,9 +93,9 @@
             // 
             // ShutdownSchedButton
             // 
-            this.ShutdownSchedButton.Location = new System.Drawing.Point(180, 243);
+            this.ShutdownSchedButton.Location = new System.Drawing.Point(178, 243);
             this.ShutdownSchedButton.Name = "ShutdownSchedButton";
-            this.ShutdownSchedButton.Size = new System.Drawing.Size(193, 39);
+            this.ShutdownSchedButton.Size = new System.Drawing.Size(194, 39);
             this.ShutdownSchedButton.TabIndex = 8;
             this.ShutdownSchedButton.Text = "Shutdown scheduler";
             this.ShutdownSchedButton.UseVisualStyleBackColor = true;
@@ -104,11 +104,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 110);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label3.Location = new System.Drawing.Point(10, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(362, 15);
+            this.label3.Size = new System.Drawing.Size(363, 19);
             this.label3.TabIndex = 9;
-            this.label3.Text = "_______________________________________________________________________";
+            this.label3.Text = "___________________________________________________________";
             // 
             // WinVerText
             // 
@@ -122,9 +124,10 @@
             // WebLink
             // 
             this.WebLink.AutoSize = true;
+            this.WebLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WebLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.WebLink.LinkColor = System.Drawing.Color.Navy;
-            this.WebLink.Location = new System.Drawing.Point(12, 267);
+            this.WebLink.Location = new System.Drawing.Point(10, 267);
             this.WebLink.Name = "WebLink";
             this.WebLink.Size = new System.Drawing.Size(101, 15);
             this.WebLink.TabIndex = 11;
@@ -145,11 +148,12 @@
             // TweaksDontApply
             // 
             this.TweaksDontApply.AutoSize = true;
-            this.TweaksDontApply.Location = new System.Drawing.Point(12, 197);
+            this.TweaksDontApply.Location = new System.Drawing.Point(9, 149);
             this.TweaksDontApply.Name = "TweaksDontApply";
-            this.TweaksDontApply.Size = new System.Drawing.Size(162, 30);
+            this.TweaksDontApply.Size = new System.Drawing.Size(162, 60);
             this.TweaksDontApply.TabIndex = 13;
-            this.TweaksDontApply.Text = "If tweaks don\'t apply, click ->\r\nor restart your system.";
+            this.TweaksDontApply.Text = "If tweaks don\'t apply, click ->\r\n\r\nIf that doesn\'t work, you may\r\nneed to restart" +
+    " your system.";
             // 
             // MainWindow
             // 
