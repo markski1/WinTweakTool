@@ -1,8 +1,8 @@
 ﻿namespace WinTweakTool
 {
-    public partial class CommonTweaksWindow : Form
+    public partial class SystemTweaksWindow : Form
     {
-        public CommonTweaksWindow()
+        public SystemTweaksWindow()
         {
             InitializeComponent();
 

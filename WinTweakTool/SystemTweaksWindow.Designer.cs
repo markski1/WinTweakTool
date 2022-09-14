@@ -1,6 +1,6 @@
 ﻿namespace WinTweakTool
 {
-    partial class CommonTweaksWindow
+    partial class SystemTweaksWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -141,7 +141,7 @@
             this.HelpBtn.UseVisualStyleBackColor = true;
             this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
             // 
-            // CommonTweaksWindow
+            // SystemTweaksWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,10 +159,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "CommonTweaksWindow";
+            this.Name = "SystemTweaksWindow";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Common Tweaks";
+            this.Text = "System Tweaks";
             this.ResumeLayout(false);
             this.PerformLayout();
 

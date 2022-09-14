@@ -39,7 +39,7 @@
             this.WinVerText = new System.Windows.Forms.Label();
             this.WebLink = new System.Windows.Forms.LinkLabel();
             this.NotAdminText = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TweaksDontApply = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // DesktopTweaksButton
@@ -58,7 +58,7 @@
             this.CommonTweaksButton.Name = "CommonTweaksButton";
             this.CommonTweaksButton.Size = new System.Drawing.Size(194, 39);
             this.CommonTweaksButton.TabIndex = 3;
-            this.CommonTweaksButton.Text = "Common tweaks";
+            this.CommonTweaksButton.Text = "System tweaks";
             this.CommonTweaksButton.UseVisualStyleBackColor = true;
             this.CommonTweaksButton.Click += new System.EventHandler(this.CommonTweaksButton_Click);
             // 
@@ -142,21 +142,21 @@
             this.NotAdminText.TabIndex = 12;
             this.NotAdminText.Text = "Running as admin.";
             // 
-            // label1
+            // TweaksDontApply
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 197);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 30);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "If tweaks don\'t apply, click ->\r\nor restart your system.";
+            this.TweaksDontApply.AutoSize = true;
+            this.TweaksDontApply.Location = new System.Drawing.Point(12, 197);
+            this.TweaksDontApply.Name = "TweaksDontApply";
+            this.TweaksDontApply.Size = new System.Drawing.Size(162, 30);
+            this.TweaksDontApply.TabIndex = 13;
+            this.TweaksDontApply.Text = "If tweaks don\'t apply, click ->\r\nor restart your system.";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(384, 291);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TweaksDontApply);
             this.Controls.Add(this.NotAdminText);
             this.Controls.Add(this.WebLink);
             this.Controls.Add(this.WinVerText);
@@ -189,6 +189,6 @@
         private Label WinVerText;
         private LinkLabel WebLink;
         private Label NotAdminText;
-        private Label label1;
+        private Label TweaksDontApply;
     }
 }
