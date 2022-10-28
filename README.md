@@ -2,7 +2,7 @@
 
 WTTk is the lightweight, feature-complete tool kit for common Windows tweaking that would otherwise require having to dive into the registry or other unfriendly places.
 
-![WTTk](https://user-images.githubusercontent.com/22557859/198515725-487fe6c9-809b-4ec2-be72-76a7f6319372.png)
+![WTTk](https://user-images.githubusercontent.com/22557859/198531354-e0bb4361-595e-4b47-8359-dc38de73bbce.png)
 
 ### Download
 
