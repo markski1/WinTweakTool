@@ -9,12 +9,25 @@
 
         private void ScheduleShutdown_Click(object sender, EventArgs e)
         {
-            int hours = Convert.ToInt32(numericUpDown1.Value);
-            int minutes = Convert.ToInt32(numericUpDown2.Value);
-
-            int total = (hours * 3600) + (minutes * 60);
-
-            if (total <= 0)
+            int hours, minutes;
+            TimeSpan shutdownTime;
+            if (shutdownIn.Checked)
+            {
+                hours = Convert.ToInt32(numericUpDown1.Value);
+                minutes = Convert.ToInt32(numericUpDown2.Value);
+                shutdownTime = new TimeSpan(hours, minutes, 0);
+            }
+            else
+            {
+                var DayChosen = monthPicker.SelectionRange.End;
+                shutdownTime = (new DateTime(DayChosen.Year, DayChosen.Month, DayChosen.Day, timePicker.Value.Hour, timePicker.Value.Minute, 0)) - DateTime.Now;
+                MessageBox.Show(((int)shutdownTime.TotalSeconds).ToString());
+                hours = shutdownTime.Days * 24;
+                hours += shutdownTime.Hours;
+                minutes = shutdownTime.Minutes;
+            }
+            
+            if (shutdownTime.TotalMinutes <= 0)
             {
                 MessageBox.Show("You must set a delay of at least 1 minute.");
                 return;
@@ -23,7 +36,7 @@
             System.Diagnostics.Process cmd = new();
 
             cmd.StartInfo.FileName = "shutdown";
-            cmd.StartInfo.Arguments = $"-s -t {total}";
+            cmd.StartInfo.Arguments = $"-s -t {((int)shutdownTime.TotalSeconds)}";
 
             cmd.Start();
             cmd.WaitForExit();
