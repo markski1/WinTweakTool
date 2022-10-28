@@ -38,11 +38,12 @@
             this.ErrorReporting = new System.Windows.Forms.CheckBox();
             this.StartSuggestions = new System.Windows.Forms.CheckBox();
             this.HelpBtn = new System.Windows.Forms.Button();
+            this.UpdateDrivers = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ApplyBtn
             // 
-            this.ApplyBtn.Location = new System.Drawing.Point(163, 222);
+            this.ApplyBtn.Location = new System.Drawing.Point(171, 249);
             this.ApplyBtn.Name = "ApplyBtn";
             this.ApplyBtn.Size = new System.Drawing.Size(75, 23);
             this.ApplyBtn.TabIndex = 0;
@@ -133,7 +134,7 @@
             // 
             // HelpBtn
             // 
-            this.HelpBtn.Location = new System.Drawing.Point(12, 222);
+            this.HelpBtn.Location = new System.Drawing.Point(12, 249);
             this.HelpBtn.Name = "HelpBtn";
             this.HelpBtn.Size = new System.Drawing.Size(75, 23);
             this.HelpBtn.TabIndex = 12;
@@ -141,11 +142,22 @@
             this.HelpBtn.UseVisualStyleBackColor = true;
             this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
             // 
+            // UpdateDrivers
+            // 
+            this.UpdateDrivers.AutoSize = true;
+            this.UpdateDrivers.Location = new System.Drawing.Point(12, 212);
+            this.UpdateDrivers.Name = "UpdateDrivers";
+            this.UpdateDrivers.Size = new System.Drawing.Size(239, 19);
+            this.UpdateDrivers.TabIndex = 13;
+            this.UpdateDrivers.Text = "Disable WinUpdate also updating drivers";
+            this.UpdateDrivers.UseVisualStyleBackColor = true;
+            // 
             // SystemTweaksWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 257);
+            this.ClientSize = new System.Drawing.Size(258, 284);
+            this.Controls.Add(this.UpdateDrivers);
             this.Controls.Add(this.HelpBtn);
             this.Controls.Add(this.StartSuggestions);
             this.Controls.Add(this.ErrorReporting);
@@ -180,5 +192,6 @@
         private CheckBox ErrorReporting;
         private CheckBox StartSuggestions;
         private Button HelpBtn;
+        private CheckBox UpdateDrivers;
     }
 }

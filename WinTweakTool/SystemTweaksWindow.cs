@@ -67,6 +67,13 @@
             {
                 StartSuggestions.Checked = true;
             }
+
+            // check if app suggestions is already disabled.
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
+            if (enabled)
+            {
+                UpdateDrivers.Checked = true;
+            }
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
@@ -172,7 +179,7 @@
 
 
             // Disable app suggestion on start option
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("Software\\Microsoft\\Windows\\Windows Error Reporting");
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent");
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -181,6 +188,18 @@
                 key: key,
                 userChoise: StartSuggestions.Checked,
                 errName: "CT8",
+                localMachine: true);
+
+            // Disable windows update also updating drivers
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+                keyName: "ExcludeWUDriversInQualityUpdate",
+                setValue: 1,
+                key: key,
+                userChoise: UpdateDrivers.Checked,
+                errName: "CT9",
                 localMachine: true);
 
 
@@ -222,7 +241,10 @@ Disables Windows trying to figure out what applications you use often to suggest
 Disables Windows phoning home about errors and other odd behaviour.
 
 - Disable app suggestions on start menu
-Disables advert/suggested apps showing up on the Start Menu tiles."
+Disables advert/suggested apps showing up on the Start Menu tiles.
+
+- Disable WinUpdate also updating drivers
+Windows Update will attempt to update some system drivers at times. Disable if you dislike this behaviour or believe it's causing you issues."
                 );
         }
     }
