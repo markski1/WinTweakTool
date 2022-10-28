@@ -21,7 +21,6 @@
             {
                 var DayChosen = monthPicker.SelectionRange.End;
                 shutdownTime = (new DateTime(DayChosen.Year, DayChosen.Month, DayChosen.Day, timePicker.Value.Hour, timePicker.Value.Minute, 0)) - DateTime.Now;
-                MessageBox.Show(((int)shutdownTime.TotalSeconds).ToString());
                 hours = shutdownTime.Days * 24;
                 hours += shutdownTime.Hours;
                 minutes = shutdownTime.Minutes;
