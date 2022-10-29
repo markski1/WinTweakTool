@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Security.Principal;
+using WinTweakTool.components;
 
 namespace WinTweakTool
 {
@@ -19,6 +20,8 @@ namespace WinTweakTool
             {
                 NotAdminText.Text = "Not running as admin!\nThings might not work.";
             }
+
+            this.Text = $"WTTk v{Global.version[0]}.{Global.version[1]}.{Global.version[2]}";
         }
 
         private void ShutdownSchedButton_Click(object sender, EventArgs e)
@@ -32,7 +35,7 @@ namespace WinTweakTool
         {
             foreach (Process hopefullyExporer in Process.GetProcesses())
             {
-                if (hopefullyExporer.ProcessName.StartsWith("explorer"))
+                if (hopefullyExporer.ProcessName.StartsWith("explorer.exe"))
                 {
                     hopefullyExporer.Kill();
                     break;
@@ -44,7 +47,13 @@ namespace WinTweakTool
         {
             Process browser = new();
             browser.StartInfo.UseShellExecute = true;
-            browser.StartInfo.FileName = "https://markski.ar";
+            if (Global.updateAvailable)
+            {
+                browser.StartInfo.FileName = "https://github.com/markski1/winTweakTool/releases/latest";
+            } else
+            {
+                browser.StartInfo.FileName = "https://markski.ar";
+            }
             browser.Start();
         }
 
@@ -69,9 +78,34 @@ namespace WinTweakTool
             TweaksDialog.Dispose();
         }
 
-        private void MainWindow_Load(object sender, EventArgs e)
+        private async void MainWindow_Load(object sender, EventArgs e)
         {
-            
+            HttpClient client = new();
+
+            // attempt to fetch last version
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync("http://snep.markski.ar/wttk.txt");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                int lastVer = Int32.Parse(responseBody);
+
+                int currVer = Int32.Parse($"{Global.version[0]}{Global.version[1]}{Global.version[2]}");
+
+                if (lastVer > currVer)
+                {
+                    WebLink.Text = "Update available!";
+                    WebLink.LinkColor = Color.Green;
+                    Global.updateAvailable = true;
+                }
+            }
+            catch
+            {
+                // if we fail, just don't crash.
+            }
+
+            client.Dispose();
         }
     }
 }

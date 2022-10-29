@@ -30,7 +30,7 @@
         {
             if (key is null)
             {
-                MessageBox.Show($"Sorry, there was an error accessing certain registry information. Please return this error: {errName}");
+                MessageBox.Show($"Sorry, there was an error accessing certain registry information. Please report this error: {errName}");
                 return;
             }
 

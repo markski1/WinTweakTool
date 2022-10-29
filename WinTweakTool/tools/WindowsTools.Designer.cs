@@ -140,7 +140,7 @@
             this.ServicesBtn.UseVisualStyleBackColor = true;
             this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);
             // 
-            // WinToolsWindow
+            // WindowsTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,10 +158,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "WinToolsWindow";
+            this.Name = "WindowsTools";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "D";
+            this.Text = "Windows Tools";
             this.ResumeLayout(false);
 
         }

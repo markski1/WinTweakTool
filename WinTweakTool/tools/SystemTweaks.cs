@@ -70,7 +70,7 @@ namespace WinTweakTool
                 StartSuggestions.Checked = true;
             }
 
-            // check if app suggestions is already disabled.
+            // check if updating drivers is already disabled
             enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
             if (enabled)
             {
