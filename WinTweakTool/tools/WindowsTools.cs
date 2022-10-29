@@ -1,8 +1,8 @@
 ﻿namespace WinTweakTool
 {
-    public partial class WinToolsWindow : Form
+    public partial class WindowsTools : Form
     {
-        public WinToolsWindow()
+        public WindowsTools()
         {
             InitializeComponent();
         }

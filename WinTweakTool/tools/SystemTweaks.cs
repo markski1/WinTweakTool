@@ -1,8 +1,10 @@
-﻿namespace WinTweakTool
+﻿using WinTweakTool.components;
+
+namespace WinTweakTool
 {
-    public partial class SystemTweaksWindow : Form
+    public partial class SystemTweaks : Form
     {
-        public SystemTweaksWindow()
+        public SystemTweaks()
         {
             InitializeComponent();
 

@@ -1,8 +1,8 @@
-﻿namespace WinTweakTool
+﻿namespace WinTweakTool.components
 {
     public static class RegistryFuncs
     {
-        public static bool CheckLocalMachine(string subKey, string keyValue, int expectedValue) 
+        public static bool CheckLocalMachine(string subKey, string keyValue, int expectedValue)
         {
             Microsoft.Win32.RegistryKey? key;
             key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(subKey);
@@ -39,11 +39,11 @@
                 bool enabled;
                 if (localMachine)
                 {
-                    enabled = RegistryFuncs.CheckLocalMachine(subKey, keyName, setValue);
+                    enabled = CheckLocalMachine(subKey, keyName, setValue);
                 }
                 else
                 {
-                    enabled = RegistryFuncs.CheckCurrentUser(subKey, keyName, setValue);
+                    enabled = CheckCurrentUser(subKey, keyName, setValue);
                 }
                 if (!enabled)
                 {

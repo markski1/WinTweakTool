@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>iconFull.ico</ApplicationIcon>
+    <ApplicationManifest>assets\app.manifest</ApplicationManifest>
+    <ApplicationIcon>assets\iconFull.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="iconFull.ico" />
+    <Content Include="assets\iconFull.ico" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace WinTweakTool
 {
-    partial class SystemTweaksWindow
+    partial class SystemTweaks
     {
         /// <summary>
         /// Required designer variable.

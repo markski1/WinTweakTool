@@ -1,8 +1,8 @@
 ﻿namespace WinTweakTool
 {
-    public partial class ShutdownWindow : Form
+    public partial class Shutdown : Form
     {
-        public ShutdownWindow()
+        public Shutdown()
         {
             InitializeComponent();
         }

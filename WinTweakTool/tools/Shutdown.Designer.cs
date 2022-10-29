@@ -1,6 +1,6 @@
 ﻿namespace WinTweakTool
 {
-    partial class ShutdownWindow
+    partial class Shutdown
     {
         /// <summary>
         /// Required designer variable.

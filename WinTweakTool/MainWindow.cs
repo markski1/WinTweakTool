@@ -23,7 +23,7 @@ namespace WinTweakTool
 
         private void ShutdownSchedButton_Click(object sender, EventArgs e)
         {
-            ShutdownWindow SleepDialog = new();
+            Shutdown SleepDialog = new();
             SleepDialog.ShowDialog();
             SleepDialog.Dispose();
         }
@@ -50,23 +50,28 @@ namespace WinTweakTool
 
         private void WindowsToolsButton_Click(object sender, EventArgs e)
         {
-            WinToolsWindow ToolsDialog = new();
+            WindowsTools ToolsDialog = new();
             ToolsDialog.ShowDialog();
             ToolsDialog.Dispose();
         }
 
         private void DesktopTweaksButton_Click(object sender, EventArgs e)
         {
-            DesktopTweaksWindow DesktopDialog = new();
+            DesktopTweaks DesktopDialog = new();
             DesktopDialog.ShowDialog();
             DesktopDialog.Dispose();
         }
 
         private void CommonTweaksButton_Click(object sender, EventArgs e)
         {
-            SystemTweaksWindow TweaksDialog = new();
+            SystemTweaks TweaksDialog = new();
             TweaksDialog.ShowDialog();
             TweaksDialog.Dispose();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

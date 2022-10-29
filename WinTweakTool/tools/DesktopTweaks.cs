@@ -1,10 +1,11 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using WinTweakTool.components;
 
 namespace WinTweakTool
 {
-    public partial class DesktopTweaksWindow : Form
+    public partial class DesktopTweaks : Form
     {
-        public DesktopTweaksWindow()
+        public DesktopTweaks()
         {
             InitializeComponent();
             bool enabled = true;
