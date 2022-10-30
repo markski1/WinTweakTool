@@ -86,7 +86,7 @@
             this.RestartExplorerButton.Location = new System.Drawing.Point(178, 136);
             this.RestartExplorerButton.Name = "RestartExplorerButton";
             this.RestartExplorerButton.Size = new System.Drawing.Size(194, 39);
-            this.RestartExplorerButton.TabIndex = 7;
+            this.RestartExplorerButton.TabIndex = 4;
             this.RestartExplorerButton.Text = "Restart explorer.exe";
             this.RestartExplorerButton.UseVisualStyleBackColor = true;
             this.RestartExplorerButton.Click += new System.EventHandler(this.RestartExplorer_Click);
@@ -96,7 +96,7 @@
             this.ShutdownSchedButton.Location = new System.Drawing.Point(178, 238);
             this.ShutdownSchedButton.Name = "ShutdownSchedButton";
             this.ShutdownSchedButton.Size = new System.Drawing.Size(194, 39);
-            this.ShutdownSchedButton.TabIndex = 8;
+            this.ShutdownSchedButton.TabIndex = 6;
             this.ShutdownSchedButton.Text = "Shutdown scheduler";
             this.ShutdownSchedButton.UseVisualStyleBackColor = true;
             this.ShutdownSchedButton.Click += new System.EventHandler(this.ShutdownSchedButton_Click);
@@ -130,7 +130,7 @@
             this.WebLink.Location = new System.Drawing.Point(10, 262);
             this.WebLink.Name = "WebLink";
             this.WebLink.Size = new System.Drawing.Size(101, 15);
-            this.WebLink.TabIndex = 11;
+            this.WebLink.TabIndex = 7;
             this.WebLink.TabStop = true;
             this.WebLink.Text = "https://markski.ar";
             this.WebLink.VisitedLinkColor = System.Drawing.Color.Navy;

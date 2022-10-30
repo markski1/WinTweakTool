@@ -46,7 +46,7 @@
             this.ApplyBtn.Location = new System.Drawing.Point(171, 249);
             this.ApplyBtn.Name = "ApplyBtn";
             this.ApplyBtn.Size = new System.Drawing.Size(75, 23);
-            this.ApplyBtn.TabIndex = 0;
+            this.ApplyBtn.TabIndex = 12;
             this.ApplyBtn.Text = "Apply";
             this.ApplyBtn.UseVisualStyleBackColor = true;
             this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
@@ -137,7 +137,7 @@
             this.HelpBtn.Location = new System.Drawing.Point(12, 249);
             this.HelpBtn.Name = "HelpBtn";
             this.HelpBtn.Size = new System.Drawing.Size(75, 23);
-            this.HelpBtn.TabIndex = 12;
+            this.HelpBtn.TabIndex = 0;
             this.HelpBtn.Text = "Help";
             this.HelpBtn.UseVisualStyleBackColor = true;
             this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
@@ -148,11 +148,11 @@
             this.UpdateDrivers.Location = new System.Drawing.Point(12, 212);
             this.UpdateDrivers.Name = "UpdateDrivers";
             this.UpdateDrivers.Size = new System.Drawing.Size(239, 19);
-            this.UpdateDrivers.TabIndex = 13;
+            this.UpdateDrivers.TabIndex = 11;
             this.UpdateDrivers.Text = "Disable WinUpdate also updating drivers";
             this.UpdateDrivers.UseVisualStyleBackColor = true;
             // 
-            // SystemTweaksWindow
+            // SystemTweaks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +171,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SystemTweaksWindow";
+            this.Name = "SystemTweaks";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "System Tweaks";
