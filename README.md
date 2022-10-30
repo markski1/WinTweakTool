@@ -22,10 +22,3 @@ dotnet publish WinTweakToolApp --no-self-contained --runtime win-x64 -p:PublishR
 WTTk is heavily in-development. You can collaborate by opening issues with suggestions or bug reports, or by writing code and opening a pull request.
 
 If you find WTTk useful, you can throw a small donation [this way](https://markski.ar/donate).
-
-### TODO
-Things I plan to do and which I believe should be in place for v1.0:
-
-- More in-depth desktop tweaks
-- Whatever else gets suggested
-- Clear separation between UI code and Business code - While Visual Studio 2022 does a good job at keeping these two apart in practice, people who (for whatever god forsaken reason) use a C# IDE other than VS22 might have a hard time browsing through it.
