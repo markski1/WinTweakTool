@@ -36,7 +36,7 @@
             // 
             // ApplyButton
             // 
-            this.ApplyButton.Location = new System.Drawing.Point(163, 148);
+            this.ApplyButton.Location = new System.Drawing.Point(163, 100);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(75, 23);
             this.ApplyButton.TabIndex = 2;
@@ -74,11 +74,11 @@
             this.ClockSeconds.Text = "Show seconds in taskbar clock";
             this.ClockSeconds.UseVisualStyleBackColor = true;
             // 
-            // DesktopTweaksWindow
+            // DesktopTweaks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(250, 181);
+            this.ClientSize = new System.Drawing.Size(250, 140);
             this.Controls.Add(this.ClockSeconds);
             this.Controls.Add(this.TaskbarTrans);
             this.Controls.Add(this.DesktopIndicatorChk);
@@ -86,7 +86,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DesktopTweaksWindow";
+            this.Name = "DesktopTweaks";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Desktop Tweaks";

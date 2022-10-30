@@ -65,7 +65,7 @@
             this.DskMgrBtn.Location = new System.Drawing.Point(132, 54);
             this.DskMgrBtn.Name = "DskMgrBtn";
             this.DskMgrBtn.Size = new System.Drawing.Size(118, 28);
-            this.DskMgrBtn.TabIndex = 5;
+            this.DskMgrBtn.TabIndex = 3;
             this.DskMgrBtn.Text = "Disk Management";
             this.DskMgrBtn.UseVisualStyleBackColor = true;
             this.DskMgrBtn.Click += new System.EventHandler(this.DskMgrBtn_Click);
@@ -75,7 +75,7 @@
             this.DevMgrBtn.Location = new System.Drawing.Point(132, 84);
             this.DevMgrBtn.Name = "DevMgrBtn";
             this.DevMgrBtn.Size = new System.Drawing.Size(118, 42);
-            this.DevMgrBtn.TabIndex = 7;
+            this.DevMgrBtn.TabIndex = 5;
             this.DevMgrBtn.Text = "Device Management";
             this.DevMgrBtn.UseVisualStyleBackColor = true;
             this.DevMgrBtn.Click += new System.EventHandler(this.DevMgrBtn_Click);
@@ -85,7 +85,7 @@
             this.EventVwrBtn.Location = new System.Drawing.Point(10, 88);
             this.EventVwrBtn.Name = "EventVwrBtn";
             this.EventVwrBtn.Size = new System.Drawing.Size(116, 34);
-            this.EventVwrBtn.TabIndex = 8;
+            this.EventVwrBtn.TabIndex = 4;
             this.EventVwrBtn.Text = "Event Viewer";
             this.EventVwrBtn.UseVisualStyleBackColor = true;
             this.EventVwrBtn.Click += new System.EventHandler(this.EventVwrBtn_Click);
@@ -95,7 +95,7 @@
             this.DxDiagBtn.Location = new System.Drawing.Point(10, 48);
             this.DxDiagBtn.Name = "DxDiagBtn";
             this.DxDiagBtn.Size = new System.Drawing.Size(116, 34);
-            this.DxDiagBtn.TabIndex = 9;
+            this.DxDiagBtn.TabIndex = 2;
             this.DxDiagBtn.Text = "DX Diagnostics";
             this.DxDiagBtn.UseVisualStyleBackColor = true;
             this.DxDiagBtn.Click += new System.EventHandler(this.DxDiagBtn_Click);
@@ -105,7 +105,7 @@
             this.ResMonBtn.Location = new System.Drawing.Point(10, 128);
             this.ResMonBtn.Name = "ResMonBtn";
             this.ResMonBtn.Size = new System.Drawing.Size(116, 34);
-            this.ResMonBtn.TabIndex = 10;
+            this.ResMonBtn.TabIndex = 6;
             this.ResMonBtn.Text = "Resource Monitor";
             this.ResMonBtn.UseVisualStyleBackColor = true;
             this.ResMonBtn.Click += new System.EventHandler(this.ResMonBtn_Click);
@@ -115,7 +115,7 @@
             this.SysInfoBtn.Location = new System.Drawing.Point(132, 132);
             this.SysInfoBtn.Name = "SysInfoBtn";
             this.SysInfoBtn.Size = new System.Drawing.Size(118, 30);
-            this.SysInfoBtn.TabIndex = 11;
+            this.SysInfoBtn.TabIndex = 7;
             this.SysInfoBtn.Text = "System Info";
             this.SysInfoBtn.UseVisualStyleBackColor = true;
             this.SysInfoBtn.Click += new System.EventHandler(this.SysInfoBtn_Click);
@@ -125,7 +125,7 @@
             this.NTConfigBtn.Location = new System.Drawing.Point(10, 168);
             this.NTConfigBtn.Name = "NTConfigBtn";
             this.NTConfigBtn.Size = new System.Drawing.Size(116, 34);
-            this.NTConfigBtn.TabIndex = 12;
+            this.NTConfigBtn.TabIndex = 8;
             this.NTConfigBtn.Text = "NT Configuration";
             this.NTConfigBtn.UseVisualStyleBackColor = true;
             this.NTConfigBtn.Click += new System.EventHandler(this.NTConfigBtn_Click);
@@ -135,7 +135,7 @@
             this.ServicesBtn.Location = new System.Drawing.Point(132, 168);
             this.ServicesBtn.Name = "ServicesBtn";
             this.ServicesBtn.Size = new System.Drawing.Size(118, 34);
-            this.ServicesBtn.TabIndex = 13;
+            this.ServicesBtn.TabIndex = 9;
             this.ServicesBtn.Text = "Services";
             this.ServicesBtn.UseVisualStyleBackColor = true;
             this.ServicesBtn.Click += new System.EventHandler(this.ServicesBtn_Click);

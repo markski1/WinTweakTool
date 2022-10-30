@@ -54,7 +54,7 @@
             // 
             // CommonTweaksButton
             // 
-            this.CommonTweaksButton.Location = new System.Drawing.Point(178, 68);
+            this.CommonTweaksButton.Location = new System.Drawing.Point(178, 63);
             this.CommonTweaksButton.Name = "CommonTweaksButton";
             this.CommonTweaksButton.Size = new System.Drawing.Size(194, 39);
             this.CommonTweaksButton.TabIndex = 3;
@@ -64,7 +64,7 @@
             // 
             // WindowsToolsButton
             // 
-            this.WindowsToolsButton.Location = new System.Drawing.Point(178, 193);
+            this.WindowsToolsButton.Location = new System.Drawing.Point(178, 188);
             this.WindowsToolsButton.Name = "WindowsToolsButton";
             this.WindowsToolsButton.Size = new System.Drawing.Size(194, 39);
             this.WindowsToolsButton.TabIndex = 5;
@@ -83,7 +83,7 @@
             // 
             // RestartExplorerButton
             // 
-            this.RestartExplorerButton.Location = new System.Drawing.Point(178, 141);
+            this.RestartExplorerButton.Location = new System.Drawing.Point(178, 136);
             this.RestartExplorerButton.Name = "RestartExplorerButton";
             this.RestartExplorerButton.Size = new System.Drawing.Size(194, 39);
             this.RestartExplorerButton.TabIndex = 7;
@@ -93,7 +93,7 @@
             // 
             // ShutdownSchedButton
             // 
-            this.ShutdownSchedButton.Location = new System.Drawing.Point(178, 243);
+            this.ShutdownSchedButton.Location = new System.Drawing.Point(178, 238);
             this.ShutdownSchedButton.Name = "ShutdownSchedButton";
             this.ShutdownSchedButton.Size = new System.Drawing.Size(194, 39);
             this.ShutdownSchedButton.TabIndex = 8;
@@ -106,16 +106,16 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(10, 109);
+            this.label3.Location = new System.Drawing.Point(4, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(363, 19);
+            this.label3.Size = new System.Drawing.Size(375, 19);
             this.label3.TabIndex = 9;
-            this.label3.Text = "___________________________________________________________";
+            this.label3.Text = "_____________________________________________________________";
             // 
             // WinVerText
             // 
             this.WinVerText.AutoSize = true;
-            this.WinVerText.Location = new System.Drawing.Point(10, 92);
+            this.WinVerText.Location = new System.Drawing.Point(10, 86);
             this.WinVerText.Name = "WinVerText";
             this.WinVerText.Size = new System.Drawing.Size(47, 15);
             this.WinVerText.TabIndex = 10;
@@ -127,7 +127,7 @@
             this.WebLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WebLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.WebLink.LinkColor = System.Drawing.Color.Navy;
-            this.WebLink.Location = new System.Drawing.Point(10, 267);
+            this.WebLink.Location = new System.Drawing.Point(10, 262);
             this.WebLink.Name = "WebLink";
             this.WebLink.Size = new System.Drawing.Size(101, 15);
             this.WebLink.TabIndex = 11;
@@ -139,7 +139,7 @@
             // NotAdminText
             // 
             this.NotAdminText.AutoSize = true;
-            this.NotAdminText.Location = new System.Drawing.Point(10, 55);
+            this.NotAdminText.Location = new System.Drawing.Point(10, 49);
             this.NotAdminText.Name = "NotAdminText";
             this.NotAdminText.Size = new System.Drawing.Size(106, 15);
             this.NotAdminText.TabIndex = 12;
@@ -148,7 +148,7 @@
             // TweaksDontApply
             // 
             this.TweaksDontApply.AutoSize = true;
-            this.TweaksDontApply.Location = new System.Drawing.Point(9, 149);
+            this.TweaksDontApply.Location = new System.Drawing.Point(9, 144);
             this.TweaksDontApply.Name = "TweaksDontApply";
             this.TweaksDontApply.Size = new System.Drawing.Size(162, 60);
             this.TweaksDontApply.TabIndex = 13;
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(384, 291);
+            this.ClientSize = new System.Drawing.Size(384, 284);
             this.Controls.Add(this.TweaksDontApply);
             this.Controls.Add(this.NotAdminText);
             this.Controls.Add(this.WebLink);
@@ -176,7 +176,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WTTk 0.9";
+            this.Text = "WTTk <vernum>";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
