@@ -1,6 +1,9 @@
 using System.Diagnostics;
+using System.Reflection;
 using System.Security.Principal;
 using WinTweakTool.components;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
 
 namespace WinTweakTool
 {
@@ -24,18 +27,11 @@ namespace WinTweakTool
             this.Text = $"WTTk v{Global.version[0]}.{Global.version[1]}.{Global.version[2]}";
         }
 
-        private void ShutdownSchedButton_Click(object sender, EventArgs e)
-        {
-            Shutdown SleepDialog = new();
-            SleepDialog.ShowDialog();
-            SleepDialog.Dispose();
-        }
-
         private void RestartExplorer_Click(object sender, EventArgs e)
         {
             foreach (Process hopefullyExporer in Process.GetProcesses())
             {
-                if (hopefullyExporer.ProcessName.StartsWith("explorer.exe"))
+                if (hopefullyExporer.ProcessName.StartsWith("explorer"))
                 {
                     hopefullyExporer.Kill();
                     break;
@@ -57,25 +53,42 @@ namespace WinTweakTool
             browser.Start();
         }
 
+
+        private void ShutdownSchedButton_Click(object sender, EventArgs e)
+        {
+            Shutdown window = new();
+            OpenWindow(window, (Button)sender);
+        }
+
         private void WindowsToolsButton_Click(object sender, EventArgs e)
         {
-            WindowsTools ToolsDialog = new();
-            ToolsDialog.ShowDialog();
-            ToolsDialog.Dispose();
+            WindowsTools window = new();
+            OpenWindow(window, (Button)sender);
         }
 
         private void DesktopTweaksButton_Click(object sender, EventArgs e)
         {
-            DesktopTweaks DesktopDialog = new();
-            DesktopDialog.ShowDialog();
-            DesktopDialog.Dispose();
+            DesktopTweaks window = new();
+            OpenWindow(window, (Button)sender);
         }
 
         private void CommonTweaksButton_Click(object sender, EventArgs e)
         {
-            SystemTweaks TweaksDialog = new();
-            TweaksDialog.ShowDialog();
-            TweaksDialog.Dispose();
+            SystemTweaks window = new();
+            OpenWindow(window, (Button)sender);
+        }
+
+        private static void OpenWindow(Form window, Button btn)
+        {
+            window.FormClosed += (sender, e) => WindowClosed(window, btn);
+            window.Show();
+            btn.Enabled = false;
+        }
+
+        private static void WindowClosed(Form sender, Button btn)
+        {
+            sender.Dispose();
+            btn.Enabled = true;
         }
 
         private async void MainWindow_Load(object sender, EventArgs e)
