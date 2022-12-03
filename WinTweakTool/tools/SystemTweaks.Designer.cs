@@ -39,11 +39,12 @@
             this.StartSuggestions = new System.Windows.Forms.CheckBox();
             this.HelpBtn = new System.Windows.Forms.Button();
             this.UpdateDrivers = new System.Windows.Forms.CheckBox();
+            this.ModernStandby = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ApplyBtn
             // 
-            this.ApplyBtn.Location = new System.Drawing.Point(171, 249);
+            this.ApplyBtn.Location = new System.Drawing.Point(171, 271);
             this.ApplyBtn.Name = "ApplyBtn";
             this.ApplyBtn.Size = new System.Drawing.Size(75, 23);
             this.ApplyBtn.TabIndex = 12;
@@ -134,7 +135,7 @@
             // 
             // HelpBtn
             // 
-            this.HelpBtn.Location = new System.Drawing.Point(12, 249);
+            this.HelpBtn.Location = new System.Drawing.Point(12, 269);
             this.HelpBtn.Name = "HelpBtn";
             this.HelpBtn.Size = new System.Drawing.Size(75, 23);
             this.HelpBtn.TabIndex = 0;
@@ -152,11 +153,23 @@
             this.UpdateDrivers.Text = "Disable WinUpdate also updating drivers";
             this.UpdateDrivers.UseVisualStyleBackColor = true;
             // 
+            // ModernStandby
+            // 
+            this.ModernStandby.AutoSize = true;
+            this.ModernStandby.Location = new System.Drawing.Point(12, 237);
+            this.ModernStandby.Name = "ModernStandby";
+            this.ModernStandby.Size = new System.Drawing.Size(207, 19);
+            this.ModernStandby.TabIndex = 13;
+            this.ModernStandby.Text = "Disable Windows Modern Standby";
+            this.ModernStandby.UseVisualStyleBackColor = true;
+            this.ModernStandby.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // SystemTweaks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 284);
+            this.ClientSize = new System.Drawing.Size(258, 303);
+            this.Controls.Add(this.ModernStandby);
             this.Controls.Add(this.UpdateDrivers);
             this.Controls.Add(this.HelpBtn);
             this.Controls.Add(this.StartSuggestions);
@@ -193,5 +206,6 @@
         private CheckBox StartSuggestions;
         private Button HelpBtn;
         private CheckBox UpdateDrivers;
+        private CheckBox ModernStandby;
     }
 }

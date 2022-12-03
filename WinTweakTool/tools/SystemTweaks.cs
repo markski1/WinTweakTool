@@ -76,6 +76,13 @@ namespace WinTweakTool
             {
                 UpdateDrivers.Checked = true;
             }
+
+            // check if windows modern standby is already disabled
+            enabled = RegistryFuncs.CheckLocalMachine("System\\CurrentControlSet\\Control\\Power", "PlatformAoAcOverride", 0);
+            if (enabled)
+            {
+                ModernStandby.Checked = true;
+            }
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
@@ -204,6 +211,18 @@ namespace WinTweakTool
                 errName: "CT9",
                 localMachine: true);
 
+            // Disable windows modern standby
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Power");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "System\\CurrentControlSet\\Control\\Power",
+                keyName: "PlatformAoAcOverride",
+                setValue: 0,
+                key: key,
+                userChoise: ModernStandby.Checked,
+                errName: "CT10",
+                localMachine: true);
+
 
             MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
         }
@@ -246,8 +265,16 @@ Disables Windows phoning home about errors and other odd behaviour.
 Disables advert/suggested apps showing up on the Start Menu tiles.
 
 - Disable WinUpdate also updating drivers
-Windows Update will attempt to update some system drivers at times. Disable if you dislike this behaviour or believe it's causing you issues."
+Windows Update will attempt to update some system drivers at times. Disable if you dislike this behaviour or believe it's causing you issues.
+
+- Disable Windows Modern Standby
+Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prevent battery draining and heat on laptops while they're off. This might cause BSODs on laptops which don't support S3"
                 );
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
