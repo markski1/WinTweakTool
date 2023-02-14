@@ -2,7 +2,7 @@
 {
     public static class Global
     {
-        public static readonly int[] version = { 1, 0, 2 };
+        public static readonly int[] version = { 1, 0, 3 };
         public static bool updateAvailable;
     }
 }

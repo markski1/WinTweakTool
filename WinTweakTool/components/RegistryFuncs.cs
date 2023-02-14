@@ -26,7 +26,7 @@
             return false;
         }
 
-        public static void SetRegistryValue(string subKey, string keyName, int setValue, Microsoft.Win32.RegistryKey? key, bool userChoise, string errName, bool localMachine)
+        public static void SetRegistryValue(string subKey, string keyName, int setValue, Microsoft.Win32.RegistryKey? key, bool userChoise, string errName, bool localMachine, int? unSetValue = null)
         {
             if (key is null)
             {
@@ -52,13 +52,20 @@
             }
             else
             {
-                try
+                if (unSetValue is null)
                 {
-                    key.DeleteValue(keyName);
+                    try
+                    {
+                        key.DeleteValue(keyName);
+                    }
+                    catch
+                    {
+                        // nothing, just don't crash.
+                    }
                 }
-                catch
+                else
                 {
-                    // nothing, just don't crash.
+                    key.SetValue(keyName, unSetValue);
                 }
             }
         }

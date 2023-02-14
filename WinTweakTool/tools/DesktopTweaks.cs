@@ -39,6 +39,13 @@ namespace WinTweakTool
             {
                 ClockSeconds.Checked = true;
             }
+
+            // if menu delay is set to 400, then the tweak is NOT set.
+            enabled = RegistryFuncs.CheckCurrentUser("Control Panel\\Desktop", "MenuShowDelay", 400);
+            if (!enabled)
+            {
+                MenuDelay.Checked = true;
+            }
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
@@ -49,10 +56,7 @@ namespace WinTweakTool
             if (disable)
             {
                 key ??= Microsoft.Win32.Registry.LocalMachine.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons");
-                if (key is not null)
-                {
-                    key.SetValue("29", "");
-                }
+                key?.SetValue("29", "");
             }
             else
             {
@@ -88,7 +92,19 @@ namespace WinTweakTool
                 key: key,
                 userChoise: TaskbarTrans.Checked,
                 errName: "DT2",
-                localMachine: true);
+                localMachine: false);
+
+            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Control Panel\\Desktop", true);
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Control Panel\\Desktop",
+                keyName: "MenuShowDelay",
+                setValue: 20,
+                unSetValue: 400,
+                key: key,
+                userChoise: MenuDelay.Checked,
+                errName: "DT3",
+                localMachine: false);
 
             MessageBox.Show("Changes applied. \n\nRestarting explorer.exe might be needed.");
         }
