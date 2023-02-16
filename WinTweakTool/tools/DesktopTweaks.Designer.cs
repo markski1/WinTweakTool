@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ApplyButton = new System.Windows.Forms.Button();
-            this.DesktopIndicatorChk = new System.Windows.Forms.CheckBox();
+            this.DesktopIndicator = new System.Windows.Forms.CheckBox();
             this.TaskbarTrans = new System.Windows.Forms.CheckBox();
             this.ClockSeconds = new System.Windows.Forms.CheckBox();
             this.MenuDelay = new System.Windows.Forms.CheckBox();
@@ -45,15 +45,15 @@
             this.ApplyButton.UseVisualStyleBackColor = true;
             this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
-            // DesktopIndicatorChk
+            // DesktopIndicator
             // 
-            this.DesktopIndicatorChk.AutoSize = true;
-            this.DesktopIndicatorChk.Location = new System.Drawing.Point(12, 12);
-            this.DesktopIndicatorChk.Name = "DesktopIndicatorChk";
-            this.DesktopIndicatorChk.Size = new System.Drawing.Size(179, 19);
-            this.DesktopIndicatorChk.TabIndex = 1;
-            this.DesktopIndicatorChk.Text = "Hide shortcut indicator icons";
-            this.DesktopIndicatorChk.UseVisualStyleBackColor = true;
+            this.DesktopIndicator.AutoSize = true;
+            this.DesktopIndicator.Location = new System.Drawing.Point(12, 12);
+            this.DesktopIndicator.Name = "DesktopIndicator";
+            this.DesktopIndicator.Size = new System.Drawing.Size(179, 19);
+            this.DesktopIndicator.TabIndex = 1;
+            this.DesktopIndicator.Text = "Hide shortcut indicator icons";
+            this.DesktopIndicator.UseVisualStyleBackColor = true;
             // 
             // TaskbarTrans
             // 
@@ -93,7 +93,7 @@
             this.Controls.Add(this.MenuDelay);
             this.Controls.Add(this.ClockSeconds);
             this.Controls.Add(this.TaskbarTrans);
-            this.Controls.Add(this.DesktopIndicatorChk);
+            this.Controls.Add(this.DesktopIndicator);
             this.Controls.Add(this.ApplyButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -109,7 +109,7 @@
 
         #endregion
         private Button ApplyButton;
-        private CheckBox DesktopIndicatorChk;
+        private CheckBox DesktopIndicator;
         private CheckBox TaskbarTrans;
         private CheckBox ClockSeconds;
         private CheckBox MenuDelay;

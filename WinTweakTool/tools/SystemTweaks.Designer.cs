@@ -162,7 +162,6 @@
             this.ModernStandby.TabIndex = 13;
             this.ModernStandby.Text = "Disable Windows Modern Standby";
             this.ModernStandby.UseVisualStyleBackColor = true;
-            this.ModernStandby.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // SystemTweaks
             // 
