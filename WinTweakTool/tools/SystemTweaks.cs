@@ -2,244 +2,272 @@
 
 namespace WinTweakTool
 {
-	public partial class SystemTweaks : Form
-	{
-		public SystemTweaks()
-		{
-			InitializeComponent();
+    public partial class SystemTweaks : Form
+    {
+        public SystemTweaks()
+        {
+            InitializeComponent();
 
-			// check all the registry keys for changes already made.
-			// this will reflect if boxes should be checked or not.
+            // check all the registry keys for changes already made.
+            // this will reflect if boxes should be checked or not.
 
-			bool enabled;
+            bool enabled;
 
-			// check if Windows Maintenance is already disabled.
-			enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", "MaintenanceDisabled", 1);
-			if (enabled)
-			{
-				WinMan.Checked = true;
-			}
+            // check if Windows Maintenance is already disabled.
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", "MaintenanceDisabled", 1);
+            if (enabled)
+            {
+                WinMan.Checked = true;
+            }
 
-			// check if Windows Defender is already disabled.
-			enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows Defender", "DisableAntiSpyware", 1);
-			if (enabled)
-			{
-				WinDef.Checked = true;
-			}
+            // check if Windows Defender is already disabled.
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows Defender", "DisableAntiSpyware", 1);
+            if (enabled)
+            {
+                WinDef.Checked = true;
+            }
 
-			// check if Cortana is already disabled.
-			enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", 0);
-			if (enabled)
-			{
-				Cortana.Checked = true;
-			}
+            // check if Cortana is already disabled.
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", 0);
+            enabled = enabled && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "CortanaConsent", 0);
 
-			// check if web search is already disabled.
-			enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1);
-			if (enabled)
-			{
-				SearchNet.Checked = true;
-			}
+            if (enabled)
+            {
+                Cortana.Checked = true;
+            }
 
-			// check if startup delay is already set to 0
+            // check if web search is already disabled.
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1);
+            enabled = enabled && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "BingSearchEnabled", 0);
 
-			enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize", "StartupDelayInMSec", 0);
-			if (enabled)
-			{
-				StartupDelay.Checked = true;
-			}
+            if (enabled)
+            {
+                SearchNet.Checked = true;
+            }
 
-			// check if app tracking is already disabled
-			enabled = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", 1);
-			if (enabled)
-			{
-				AppTracking.Checked = true;
-			}
+            // check if startup delay is already set to 0
 
-			// check if error reporting is already disabled
-			enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\Windows Error Reporting", "Disabled", 1);
-			if (enabled)
-			{
-				ErrorReporting.Checked = true;
-			}
+            enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize", "StartupDelayInMSec", 0);
+            if (enabled)
+            {
+                StartupDelay.Checked = true;
+            }
 
-			// check if app suggestions is already disabled.
-			enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent", "DisableWindowsConsumerFeatures", 1);
-			if (enabled)
-			{
-				StartSuggestions.Checked = true;
-			}
+            // check if app tracking is already disabled
+            enabled = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", 1);
+            if (enabled)
+            {
+                AppTracking.Checked = true;
+            }
 
-			// check if updating drivers is already disabled
-			enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
-			if (enabled)
-			{
-				UpdateDrivers.Checked = true;
-			}
+            // check if error reporting is already disabled
+            enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\Windows Error Reporting", "Disabled", 1);
+            if (enabled)
+            {
+                ErrorReporting.Checked = true;
+            }
 
-			// check if windows modern standby is already disabled
-			enabled = RegistryFuncs.CheckLocalMachine("System\\CurrentControlSet\\Control\\Power", "PlatformAoAcOverride", 0);
-			if (enabled)
-			{
-				ModernStandby.Checked = true;
-			}
-		}
+            // check if app suggestions is already disabled.
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent", "DisableWindowsConsumerFeatures", 1);
+            if (enabled)
+            {
+                StartSuggestions.Checked = true;
+            }
 
-		private void ApplyBtn_Click(object sender, EventArgs e)
-		{
-			Microsoft.Win32.RegistryKey? key;
-				
+            // check if updating drivers is already disabled
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
+            if (enabled)
+            {
+                UpdateDrivers.Checked = true;
+            }
 
-			// Windows Maintenance option
-			key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance");
+            // check if windows modern standby is already disabled
+            enabled = RegistryFuncs.CheckLocalMachine("System\\CurrentControlSet\\Control\\Power", "PlatformAoAcOverride", 0);
+            if (enabled)
+            {
+                ModernStandby.Checked = true;
+            }
+        }
 
-			RegistryFuncs.SetRegistryValue(
-				subKey: "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", 
-				keyName: "MaintenanceDisabled", 
-				setValue: 1, 
-				key: key, 
-				userChoise: WinMan.Checked, 
-				errName: "CT1",
-				localMachine: true);
+        private void ApplyBtn_Click(object sender, EventArgs e)
+        {
+            Microsoft.Win32.RegistryKey? key;
 
 
+            // Windows Maintenance option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance");
 
-			// Windows Defender option
-			key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows Defender");
-
-			RegistryFuncs.SetRegistryValue(
-				subKey: "SOFTWARE\\Policies\\Microsoft\\Windows Defender",
-				keyName: "DisableAntiSpyware",
-				setValue: 1,
-				key: key,
-				userChoise: WinDef.Checked,
-				errName: "CT2",
-				localMachine: true);                
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance",
+                keyName: "MaintenanceDisabled",
+                setValue: 1,
+                key: key,
+                userChoise: WinMan.Checked,
+                errName: "CT1",
+                localMachine: true);
 
 
 
-			// Disable Cortana option
-			key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search");
+            // Windows Defender option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows Defender");
 
-			RegistryFuncs.SetRegistryValue(
-				subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-				keyName: "AllowCortana",
-				setValue: 0,
-				key: key,
-				userChoise: Cortana.Checked,
-				errName: "CT3-4",
-				localMachine: true);
-
-
-
-			// Disable search internet suggestions option
-			// No need to re-set key
-			RegistryFuncs.SetRegistryValue(
-				subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-				keyName: "DisableWebSearch",
-				setValue: 1,
-				key: key,
-				userChoise: SearchNet.Checked,
-				errName: "CT3-4",
-				localMachine: true);
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows Defender",
+                keyName: "DisableAntiSpyware",
+                setValue: 1,
+                key: key,
+                userChoise: WinDef.Checked,
+                errName: "CT2",
+                localMachine: true);
 
 
 
-			// Disable startup delay option
-			key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize");
+            // Disable Cortana option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search");
 
-			RegistryFuncs.SetRegistryValue(
-				subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize",
-				keyName: "StartupDelayInMSec",
-				setValue: 0,
-				key: key,
-				userChoise: StartupDelay.Checked,
-				errName: "CT5",
-				localMachine: false);
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+                keyName: "AllowCortana",
+                setValue: 0,
+                key: key,
+                userChoise: Cortana.Checked,
+                errName: "CT3-4",
+                localMachine: true);
 
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search");
 
-
-			// Disable app tracking option
-			key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\EdgeUI");
-
-			RegistryFuncs.SetRegistryValue(
-				subKey: "Software\\Policies\\Microsoft\\Windows\\EdgeUI",
-				keyName: "DisableMFUTracking",
-				setValue: 1,
-				key: key,
-				userChoise: AppTracking.Checked,
-				errName: "CT6",
-				localMachine: false);
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+                keyName: "CortanaConsent",
+                setValue: 0,
+                key: key,
+                userChoise: Cortana.Checked,
+                errName: "CT3-4-1",
+                localMachine: false);
 
 
 
-			// Disable error reporting option
-			key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\Windows Error Reporting");
+            // Disable search internet suggestions option
+            // No need to re-set key
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search");
 
-			RegistryFuncs.SetRegistryValue(
-				subKey: "Software\\Microsoft\\Windows\\Windows Error Reporting",
-				keyName: "Disabled",
-				setValue: 1,
-				key: key,
-				userChoise: ErrorReporting.Checked,
-				errName: "CT7",
-				localMachine: false);
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+                keyName: "DisableWebSearch",
+                setValue: 1,
+                key: key,
+                userChoise: SearchNet.Checked,
+                errName: "CT3-4",
+                localMachine: true);
 
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search");
 
-
-			// Disable app suggestion on start option
-			key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent");
-
-			RegistryFuncs.SetRegistryValue(
-				subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
-				keyName: "DisableWindowsConsumerFeatures",
-				setValue: 1,
-				key: key,
-				userChoise: StartSuggestions.Checked,
-				errName: "CT8",
-				localMachine: true);
-
-			// Disable windows update also updating drivers
-			key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate");
-
-			RegistryFuncs.SetRegistryValue(
-				subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
-				keyName: "ExcludeWUDriversInQualityUpdate",
-				setValue: 1,
-				key: key,
-				userChoise: UpdateDrivers.Checked,
-				errName: "CT9",
-				localMachine: true);
-
-			// Disable windows modern standby
-			key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Power");
-
-			RegistryFuncs.SetRegistryValue(
-				subKey: "System\\CurrentControlSet\\Control\\Power",
-				keyName: "PlatformAoAcOverride",
-				setValue: 0,
-				key: key,
-				userChoise: ModernStandby.Checked,
-				errName: "CT10",
-				localMachine: true);
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+                keyName: "BingSearchEnabled",
+                setValue: 0,
+                key: key,
+                userChoise: SearchNet.Checked,
+                errName: "CT3-4-1",
+                localMachine: false);
 
 
-			MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
-		}
 
-		private void WinDef_CheckedChanged(object sender, EventArgs e)
-		{
-			if (WinDef.Checked)
-			{
-				MessageBox.Show(
-					"Attention!\n\nRunning your computer with no anti-virus is not worth whatever performance improvements you think you might get.\n\nI don't care if you're a super expert or a leet hacker, using an anti-virus is not beneath you. Modern system security is a lot more complex than \"I know what to download lol\"\n\nThis option exists because I am of the belief that you should be able to do whatever you want with your own computer. But be advised, this is a very stupid idea.\n\nIf you really dislike Windows Defender, do at least consider replacing it with another AV solution rather than running with no AV at all."
-				);
-			}
-		}
+            // Disable startup delay option
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize");
 
-		private void HelpBtn_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show(
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize",
+                keyName: "StartupDelayInMSec",
+                setValue: 0,
+                key: key,
+                userChoise: StartupDelay.Checked,
+                errName: "CT5",
+                localMachine: false);
+
+
+
+            // Disable app tracking option
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\EdgeUI");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Policies\\Microsoft\\Windows\\EdgeUI",
+                keyName: "DisableMFUTracking",
+                setValue: 1,
+                key: key,
+                userChoise: AppTracking.Checked,
+                errName: "CT6",
+                localMachine: false);
+
+
+
+            // Disable error reporting option
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\Windows Error Reporting");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\Windows Error Reporting",
+                keyName: "Disabled",
+                setValue: 1,
+                key: key,
+                userChoise: ErrorReporting.Checked,
+                errName: "CT7",
+                localMachine: false);
+
+
+
+            // Disable app suggestion on start option
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+                keyName: "DisableWindowsConsumerFeatures",
+                setValue: 1,
+                key: key,
+                userChoise: StartSuggestions.Checked,
+                errName: "CT8",
+                localMachine: true);
+
+            // Disable windows update also updating drivers
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+                keyName: "ExcludeWUDriversInQualityUpdate",
+                setValue: 1,
+                key: key,
+                userChoise: UpdateDrivers.Checked,
+                errName: "CT9",
+                localMachine: true);
+
+            // Disable windows modern standby
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Power");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "System\\CurrentControlSet\\Control\\Power",
+                keyName: "PlatformAoAcOverride",
+                setValue: 0,
+                key: key,
+                userChoise: ModernStandby.Checked,
+                errName: "CT10",
+                localMachine: true);
+
+
+            MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
+        }
+
+        private void WinDef_CheckedChanged(object sender, EventArgs e)
+        {
+            if (WinDef.Checked)
+            {
+                MessageBox.Show(
+                    "Attention!\n\nRunning your computer with no anti-virus is not worth whatever performance improvements you think you might get.\n\nI don't care if you're a super expert or a leet hacker, using an anti-virus is not beneath you. Modern system security is a lot more complex than \"I know what to download lol\"\n\nThis option exists because I am of the belief that you should be able to do whatever you want with your own computer. But be advised, this is a very stupid idea.\n\nIf you really dislike Windows Defender, do at least consider replacing it with another AV solution rather than running with no AV at all."
+                );
+            }
+        }
+
+        private void HelpBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
 @"- Disable Windows Maintenance
 Disables automated maintenance tasks like updates, security scanning and system diagnostics.
 
@@ -269,7 +297,7 @@ Windows Update will attempt to update some system drivers at times. Disable if y
 
 - Disable Windows Modern Standby
 Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prevent battery draining and heat on laptops while they're off. This might cause BSODs on laptops which don't support S3"
-				);
-		}
-	}
+                );
+        }
+    }
 }

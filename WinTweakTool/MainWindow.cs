@@ -115,6 +115,8 @@ namespace WinTweakTool
             }
             catch
             {
+                WebLink.Text += "\nFailed to fetch update.";
+                WebLink.Location = new System.Drawing.Point(10, 245);
                 // if we fail, just don't crash.
             }
 
