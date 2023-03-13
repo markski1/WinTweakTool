@@ -87,6 +87,13 @@ namespace WinTweakTool
             {
                 ModernStandby.Checked = true;
             }
+
+            // check for verbose mode
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\WOW6432Node\\Microsoft", "VerboseStatus", 32);
+            if (enabled)
+            {
+                VerboseMode.Checked = true;
+            }
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
@@ -251,6 +258,18 @@ namespace WinTweakTool
                 errName: "CT10",
                 localMachine: true);
 
+            // Enable verbose mode
+            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\WOW6432Node\\Microsoft");
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\WOW6432Node\\Microsoft",
+                keyName: "VerboseMode",
+                setValue: 32,
+                key: key,
+                userChoise: ModernStandby.Checked,
+                errName: "CT10",
+                localMachine: true);
+
 
             MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
         }
@@ -296,8 +315,21 @@ Disables advert/suggested apps showing up on the Start Menu tiles.
 Windows Update will attempt to update some system drivers at times. Disable if you dislike this behaviour or believe it's causing you issues.
 
 - Disable Windows Modern Standby
-Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prevent battery draining and heat on laptops while they're off. This might cause BSODs on laptops which don't support S3"
+Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prevent battery draining and heat on laptops while they're off. This might cause BSODs on laptops which don't support S3
+
+- Enable verbose mode
+Shows more detail of what is really happening in certain cases, for example when the computer is booting up and shutting down."
                 );
+        }
+
+        private void SearchNet_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateDrivers_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,8 +1,6 @@
 using System.Diagnostics;
-using System.Reflection;
 using System.Security.Principal;
 using WinTweakTool.components;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 
 namespace WinTweakTool

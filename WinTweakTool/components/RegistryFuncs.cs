@@ -34,40 +34,47 @@
 				return;
 			}
 
-			if (userChoise)
+			try
 			{
-				bool enabled;
-				if (localMachine)
+				if (userChoise)
 				{
-					enabled = CheckLocalMachine(subKey, keyName, setValue);
-				}
-				else
-				{
-					enabled = CheckCurrentUser(subKey, keyName, setValue);
-				}
-				if (!enabled)
-				{
-					key.SetValue(keyName, setValue);
-				}
-			}
-			else
-			{
-				if (unSetValue is null)
-				{
-					try
+					bool enabled;
+					if (localMachine)
 					{
-						key.DeleteValue(keyName);
+						enabled = CheckLocalMachine(subKey, keyName, setValue);
 					}
-					catch
+					else
 					{
-						// nothing, just don't crash.
+						enabled = CheckCurrentUser(subKey, keyName, setValue);
+					}
+					if (!enabled)
+					{
+						key.SetValue(keyName, setValue);
 					}
 				}
 				else
 				{
-					key.SetValue(keyName, unSetValue);
+					if (unSetValue is null)
+					{
+						try
+						{
+							key.DeleteValue(keyName);
+						}
+						catch
+						{
+							// nothing, just don't crash.
+						}
+					}
+					else
+					{
+						key.SetValue(keyName, unSetValue);
+					}
 				}
 			}
+			catch {
+                MessageBox.Show($"Sorry, I couldn't write the registry key. Please make sure I'm running as admin! {errName}");
+                return;
+            }
 		}
 	}
 }

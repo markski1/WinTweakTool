@@ -40,11 +40,12 @@
             HelpBtn = new Button();
             UpdateDrivers = new CheckBox();
             ModernStandby = new CheckBox();
+            VerboseMode = new CheckBox();
             SuspendLayout();
             // 
             // ApplyBtn
             // 
-            ApplyBtn.Location = new Point(167, 268);
+            ApplyBtn.Location = new Point(389, 176);
             ApplyBtn.Name = "ApplyBtn";
             ApplyBtn.Size = new Size(75, 23);
             ApplyBtn.TabIndex = 12;
@@ -92,6 +93,7 @@
             SearchNet.TabIndex = 5;
             SearchNet.Text = "Disable Search internet suggestions";
             SearchNet.UseVisualStyleBackColor = true;
+            SearchNet.CheckedChanged += SearchNet_CheckedChanged;
             // 
             // StartupDelay
             // 
@@ -116,7 +118,7 @@
             // ErrorReporting
             // 
             ErrorReporting.AutoSize = true;
-            ErrorReporting.Location = new Point(12, 162);
+            ErrorReporting.Location = new Point(234, 12);
             ErrorReporting.Name = "ErrorReporting";
             ErrorReporting.Size = new Size(144, 19);
             ErrorReporting.TabIndex = 9;
@@ -126,7 +128,7 @@
             // StartSuggestions
             // 
             StartSuggestions.AutoSize = true;
-            StartSuggestions.Location = new Point(12, 187);
+            StartSuggestions.Location = new Point(234, 37);
             StartSuggestions.Name = "StartSuggestions";
             StartSuggestions.Size = new Size(230, 19);
             StartSuggestions.TabIndex = 10;
@@ -135,7 +137,7 @@
             // 
             // HelpBtn
             // 
-            HelpBtn.Location = new Point(12, 269);
+            HelpBtn.Location = new Point(12, 176);
             HelpBtn.Name = "HelpBtn";
             HelpBtn.Size = new Size(75, 23);
             HelpBtn.TabIndex = 0;
@@ -146,28 +148,40 @@
             // UpdateDrivers
             // 
             UpdateDrivers.AutoSize = true;
-            UpdateDrivers.Location = new Point(12, 212);
+            UpdateDrivers.Location = new Point(234, 62);
             UpdateDrivers.Name = "UpdateDrivers";
-            UpdateDrivers.Size = new Size(239, 19);
+            UpdateDrivers.Size = new Size(199, 19);
             UpdateDrivers.TabIndex = 11;
-            UpdateDrivers.Text = "Disable WinUpdate also updating drivers";
+            UpdateDrivers.Text = "Disable automatic driver updates";
             UpdateDrivers.UseVisualStyleBackColor = true;
+            UpdateDrivers.CheckedChanged += UpdateDrivers_CheckedChanged;
             // 
             // ModernStandby
             // 
             ModernStandby.AutoSize = true;
-            ModernStandby.Location = new Point(12, 237);
+            ModernStandby.Location = new Point(234, 87);
             ModernStandby.Name = "ModernStandby";
             ModernStandby.Size = new Size(207, 19);
             ModernStandby.TabIndex = 13;
             ModernStandby.Text = "Disable Windows Modern Standby";
             ModernStandby.UseVisualStyleBackColor = true;
             // 
+            // VerboseMode
+            // 
+            VerboseMode.AutoSize = true;
+            VerboseMode.Location = new Point(234, 112);
+            VerboseMode.Name = "VerboseMode";
+            VerboseMode.Size = new Size(139, 19);
+            VerboseMode.TabIndex = 14;
+            VerboseMode.Text = "Enable verbose mode";
+            VerboseMode.UseVisualStyleBackColor = true;
+            // 
             // SystemTweaks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(258, 303);
+            ClientSize = new Size(476, 211);
+            Controls.Add(VerboseMode);
             Controls.Add(ModernStandby);
             Controls.Add(UpdateDrivers);
             Controls.Add(HelpBtn);
@@ -205,5 +219,6 @@
         private Button HelpBtn;
         private CheckBox UpdateDrivers;
         private CheckBox ModernStandby;
+        private CheckBox VerboseMode;
     }
 }
