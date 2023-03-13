@@ -93,7 +93,6 @@
             SearchNet.TabIndex = 5;
             SearchNet.Text = "Disable Search internet suggestions";
             SearchNet.UseVisualStyleBackColor = true;
-            SearchNet.CheckedChanged += SearchNet_CheckedChanged;
             // 
             // StartupDelay
             // 
@@ -154,7 +153,6 @@
             UpdateDrivers.TabIndex = 11;
             UpdateDrivers.Text = "Disable automatic driver updates";
             UpdateDrivers.UseVisualStyleBackColor = true;
-            UpdateDrivers.CheckedChanged += UpdateDrivers_CheckedChanged;
             // 
             // ModernStandby
             // 

@@ -98,174 +98,126 @@ namespace WinTweakTool
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.RegistryKey? key;
-
-
-            // Windows Maintenance option
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance",
                 keyName: "MaintenanceDisabled",
                 setValue: 1,
-                key: key,
                 userChoise: WinMan.Checked,
                 errName: "CT1",
                 localMachine: true);
 
 
-
             // Windows Defender option
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows Defender");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows Defender",
                 keyName: "DisableAntiSpyware",
                 setValue: 1,
-                key: key,
                 userChoise: WinDef.Checked,
                 errName: "CT2",
                 localMachine: true);
 
-
-
             // Disable Cortana option
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
                 keyName: "AllowCortana",
                 setValue: 0,
-                key: key,
                 userChoise: Cortana.Checked,
                 errName: "CT3-4",
                 localMachine: true);
-
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search");
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
                 keyName: "CortanaConsent",
                 setValue: 0,
-                key: key,
                 userChoise: Cortana.Checked,
                 errName: "CT3-4-1",
                 localMachine: false);
 
 
-
             // Disable search internet suggestions option
             // No need to re-set key
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
                 keyName: "DisableWebSearch",
                 setValue: 1,
-                key: key,
                 userChoise: SearchNet.Checked,
                 errName: "CT3-4",
                 localMachine: true);
-
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search");
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
                 keyName: "BingSearchEnabled",
                 setValue: 0,
-                key: key,
                 userChoise: SearchNet.Checked,
                 errName: "CT3-4-1",
                 localMachine: false);
 
 
-
             // Disable startup delay option
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize",
                 keyName: "StartupDelayInMSec",
                 setValue: 0,
-                key: key,
                 userChoise: StartupDelay.Checked,
                 errName: "CT5",
                 localMachine: false);
 
 
-
             // Disable app tracking option
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Policies\\Microsoft\\Windows\\EdgeUI");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "Software\\Policies\\Microsoft\\Windows\\EdgeUI",
                 keyName: "DisableMFUTracking",
                 setValue: 1,
-                key: key,
                 userChoise: AppTracking.Checked,
                 errName: "CT6",
                 localMachine: false);
 
 
-
             // Disable error reporting option
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\Windows Error Reporting");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "Software\\Microsoft\\Windows\\Windows Error Reporting",
                 keyName: "Disabled",
                 setValue: 1,
-                key: key,
                 userChoise: ErrorReporting.Checked,
                 errName: "CT7",
                 localMachine: false);
 
 
-
             // Disable app suggestion on start option
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent");
-
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
                 keyName: "DisableWindowsConsumerFeatures",
                 setValue: 1,
-                key: key,
                 userChoise: StartSuggestions.Checked,
                 errName: "CT8",
                 localMachine: true);
 
-            // Disable windows update also updating drivers
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate");
 
+            // Disable windows update also updating drivers
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
                 keyName: "ExcludeWUDriversInQualityUpdate",
                 setValue: 1,
-                key: key,
                 userChoise: UpdateDrivers.Checked,
                 errName: "CT9",
                 localMachine: true);
 
-            // Disable windows modern standby
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("System\\CurrentControlSet\\Control\\Power");
 
+            // Disable windows modern standby
             RegistryFuncs.SetRegistryValue(
                 subKey: "System\\CurrentControlSet\\Control\\Power",
                 keyName: "PlatformAoAcOverride",
                 setValue: 0,
-                key: key,
                 userChoise: ModernStandby.Checked,
                 errName: "CT10",
                 localMachine: true);
 
-            // Enable verbose mode
-            key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\WOW6432Node\\Microsoft");
 
+            // Enable verbose mode
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\WOW6432Node\\Microsoft",
                 keyName: "VerboseMode",
                 setValue: 32,
-                key: key,
                 userChoise: ModernStandby.Checked,
                 errName: "CT10",
                 localMachine: true);
@@ -320,16 +272,6 @@ Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prev
 - Enable verbose mode
 Shows more detail of what is really happening in certain cases, for example when the computer is booting up and shutting down."
                 );
-        }
-
-        private void SearchNet_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void UpdateDrivers_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

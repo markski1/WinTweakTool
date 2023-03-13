@@ -58,7 +58,6 @@
             DesktopIndicator.TabIndex = 1;
             DesktopIndicator.Text = "Hide shortcut indicator icons";
             DesktopIndicator.UseVisualStyleBackColor = true;
-            DesktopIndicator.CheckedChanged += DesktopIndicator_CheckedChanged;
             // 
             // TaskbarTrans
             // 

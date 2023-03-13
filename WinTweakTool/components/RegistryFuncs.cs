@@ -26,9 +26,20 @@
 			return false;
 		}
 
-		public static void SetRegistryValue(string subKey, string keyName, int setValue, Microsoft.Win32.RegistryKey? key, bool userChoise, string errName, bool localMachine, int? unSetValue = null)
+		public static void SetRegistryValue(string subKey, string keyName, bool userChoise, string errName, bool localMachine, int? setValue = null, string? setStrValue = null, int? unSetValue = null)
 		{
-			if (key is null)
+            Microsoft.Win32.RegistryKey? key;
+
+			if (localMachine)
+			{
+                key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(subKey, true);
+            }
+            else
+			{
+				key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(subKey, true);
+			}
+
+            if (key is null)
 			{
 				MessageBox.Show($"Sorry, there was an error accessing certain registry information. Please report this error: {errName}");
 				return;
@@ -38,19 +49,8 @@
 			{
 				if (userChoise)
 				{
-					bool enabled;
-					if (localMachine)
-					{
-						enabled = CheckLocalMachine(subKey, keyName, setValue);
-					}
-					else
-					{
-						enabled = CheckCurrentUser(subKey, keyName, setValue);
-					}
-					if (!enabled)
-					{
-						key.SetValue(keyName, setValue);
-					}
+					if (setValue is not null) key.SetValue(keyName, setValue);
+					if (setStrValue is not null) key.SetValue(keyName, setStrValue);
 				}
 				else
 				{

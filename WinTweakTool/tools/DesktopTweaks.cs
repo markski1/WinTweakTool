@@ -70,37 +70,18 @@ namespace WinTweakTool
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            var disable = DesktopIndicator.Checked;
-            Microsoft.Win32.RegistryKey? key;
-            key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons", true);
-            if (disable)
-            {
-                key ??= Microsoft.Win32.Registry.LocalMachine.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons");
-                key?.SetValue("29", "");
-            }
-            else
-            {
-                // if the key isn't null, we need change nothing as no key means icons are on.
-                if (key is not null)
-                {
-                    try
-                    {
-                        key.DeleteValue("29");
-                    }
-                    catch
-                    {
-                        // no need to handle, just don't crash.
-                    }
-                }
-            }
-
-            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons",
+                keyName: "29",
+                setStrValue: "",
+                userChoise: DesktopIndicator.Checked,
+                errName: "DT0",
+                localMachine: true);
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
                 keyName: "ShowSecondsInSystemClock",
                 setValue: 1,
-                key: key,
                 userChoise: ClockSeconds.Checked,
                 errName: "DT1",
                 localMachine: false);
@@ -109,70 +90,47 @@ namespace WinTweakTool
                 subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
                 keyName: "UseOLEDTaskbarTransparency",
                 setValue: 1,
-                key: key,
                 userChoise: TaskbarTrans.Checked,
                 errName: "DT2",
                 localMachine: false);
-
-            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Control Panel\\Desktop", true);
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "Control Panel\\Desktop",
                 keyName: "MenuShowDelay",
                 setValue: 20,
                 unSetValue: 400,
-                key: key,
                 userChoise: MenuDelay.Checked,
                 errName: "DT3",
                 localMachine: false);
-
-            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", true);
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
                 keyName: "DisallowShaking",
                 setValue: 1,
                 unSetValue: 0,
-                key: key,
                 userChoise: ShakeMin.Checked,
                 errName: "DT4",
                 localMachine: false);
-
-            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\Windows", true);
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "SOFTWARE\\Policies\\Microsoft\\Windows",
                 keyName: "DisableNotificationCenter",
                 setValue: 1,
                 unSetValue: 0,
-                key: key,
                 userChoise: ActionCenter.Checked,
                 errName: "DT5",
                 localMachine: false);
-
-            key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer", true);
-
-            if (key is null)
-            {
-                key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer", true);
-            }
 
             RegistryFuncs.SetRegistryValue(
                 subKey: "Software\\Policies\\Microsoft\\Windows\\Explorer",
                 keyName: "EnableLegacyBalloonNotifications",
                 setValue: 1,
                 unSetValue: 0,
-                key: key,
                 userChoise: BalloonNotis.Checked,
                 errName: "DT6",
                 localMachine: false);
 
             MessageBox.Show("Changes applied. \n\nRestarting explorer.exe might be needed.");
-        }
-
-        private void DesktopIndicator_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void HelpBtn_Click(object sender, EventArgs e)
