@@ -1,4 +1,7 @@
-﻿namespace WinTweakTool
+﻿using System;
+using System.Windows.Forms;
+
+namespace WinTweakTool
 {
 	public partial class Shutdown : Form
 	{
@@ -32,7 +35,7 @@
 				return;
 			}
 
-			System.Diagnostics.Process cmd = new();
+			System.Diagnostics.Process cmd = new System.Diagnostics.Process();
 
 			cmd.StartInfo.FileName = "shutdown";
 			cmd.StartInfo.Arguments = $"-s -t {((int)shutdownTime.TotalSeconds)}";
@@ -46,7 +49,7 @@
 
 		private void CancelShutdown_Click(object sender, EventArgs e)
 		{
-			System.Diagnostics.Process cmd = new();
+			System.Diagnostics.Process cmd = new System.Diagnostics.Process();
 
 			cmd.StartInfo.FileName = "shutdown";
 			cmd.StartInfo.Arguments = $"-a";
@@ -56,6 +59,11 @@
 			cmd.Dispose();
 
 			MessageBox.Show($"The scheduled shutdown (if any) has been cancelled.");
+		}
+
+		private void Shutdown_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

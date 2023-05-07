@@ -1,4 +1,6 @@
-﻿using WinTweakTool.components;
+﻿using System;
+using System.Windows.Forms;
+using WinTweakTool.components;
 
 namespace WinTweakTool
 {
@@ -8,10 +10,10 @@ namespace WinTweakTool
         {
             InitializeComponent();
             bool enabled = true;
-            Microsoft.Win32.RegistryKey? key;
+            Microsoft.Win32.RegistryKey key;
             key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons");
             // if the key exists, check for the value 29. This sets the desktop indicator.
-            if (key is not null)
+            if (key != null)
             {
                 if (key.GetValue("29") is null) enabled = false;
             }

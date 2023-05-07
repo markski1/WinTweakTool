@@ -1,4 +1,7 @@
-﻿namespace WinTweakTool
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace WinTweakTool
 {
     partial class DesktopTweaks
     {
@@ -28,130 +31,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ApplyButton = new Button();
-            DesktopIndicator = new CheckBox();
-            TaskbarTrans = new CheckBox();
-            ClockSeconds = new CheckBox();
-            MenuDelay = new CheckBox();
-            ShakeMin = new CheckBox();
-            ActionCenter = new CheckBox();
-            BalloonNotis = new CheckBox();
-            HelpBtn = new Button();
-            SuspendLayout();
-            // 
-            // ApplyButton
-            // 
-            ApplyButton.Location = new Point(163, 197);
-            ApplyButton.Name = "ApplyButton";
-            ApplyButton.Size = new Size(75, 23);
-            ApplyButton.TabIndex = 4;
-            ApplyButton.Text = "Apply";
-            ApplyButton.UseVisualStyleBackColor = true;
-            ApplyButton.Click += ApplyButton_Click;
-            // 
-            // DesktopIndicator
-            // 
-            DesktopIndicator.AutoSize = true;
-            DesktopIndicator.Location = new Point(12, 12);
-            DesktopIndicator.Name = "DesktopIndicator";
-            DesktopIndicator.Size = new Size(179, 19);
-            DesktopIndicator.TabIndex = 1;
-            DesktopIndicator.Text = "Hide shortcut indicator icons";
-            DesktopIndicator.UseVisualStyleBackColor = true;
-            // 
-            // TaskbarTrans
-            // 
-            TaskbarTrans.AutoSize = true;
-            TaskbarTrans.Location = new Point(12, 37);
-            TaskbarTrans.Name = "TaskbarTrans";
-            TaskbarTrans.Size = new Size(181, 19);
-            TaskbarTrans.TabIndex = 2;
-            TaskbarTrans.Text = "Increase taskbar transparency";
-            TaskbarTrans.UseVisualStyleBackColor = true;
-            // 
-            // ClockSeconds
-            // 
-            ClockSeconds.AutoSize = true;
-            ClockSeconds.Location = new Point(12, 62);
-            ClockSeconds.Name = "ClockSeconds";
-            ClockSeconds.Size = new Size(186, 19);
-            ClockSeconds.TabIndex = 3;
-            ClockSeconds.Text = "Show seconds in taskbar clock";
-            ClockSeconds.UseVisualStyleBackColor = true;
-            // 
-            // MenuDelay
-            // 
-            MenuDelay.AutoSize = true;
-            MenuDelay.Location = new Point(12, 87);
-            MenuDelay.Name = "MenuDelay";
-            MenuDelay.Size = new Size(181, 19);
-            MenuDelay.TabIndex = 5;
-            MenuDelay.Text = "Decrease context menu delay";
-            MenuDelay.UseVisualStyleBackColor = true;
-            // 
-            // ShakeMin
-            // 
-            ShakeMin.AutoSize = true;
-            ShakeMin.Location = new Point(12, 112);
-            ShakeMin.Name = "ShakeMin";
-            ShakeMin.Size = new Size(167, 19);
-            ShakeMin.TabIndex = 6;
-            ShakeMin.Text = "Disable shake-to-minimize";
-            ShakeMin.UseVisualStyleBackColor = true;
-            // 
-            // ActionCenter
-            // 
-            ActionCenter.AutoSize = true;
-            ActionCenter.Location = new Point(12, 137);
-            ActionCenter.Name = "ActionCenter";
-            ActionCenter.Size = new Size(213, 19);
-            ActionCenter.TabIndex = 7;
-            ActionCenter.Text = "Disable action center / notifications";
-            ActionCenter.UseVisualStyleBackColor = true;
-            // 
-            // BalloonNotis
-            // 
-            BalloonNotis.AutoSize = true;
-            BalloonNotis.Location = new Point(12, 162);
-            BalloonNotis.Name = "BalloonNotis";
-            BalloonNotis.Size = new Size(203, 19);
-            BalloonNotis.TabIndex = 8;
-            BalloonNotis.Text = "Enable old \"balloon\" notifications";
-            BalloonNotis.UseVisualStyleBackColor = true;
-            // 
-            // HelpBtn
-            // 
-            HelpBtn.Location = new Point(12, 197);
-            HelpBtn.Name = "HelpBtn";
-            HelpBtn.Size = new Size(75, 23);
-            HelpBtn.TabIndex = 9;
-            HelpBtn.Text = "Help";
-            HelpBtn.UseVisualStyleBackColor = true;
-            HelpBtn.Click += HelpBtn_Click;
-            // 
-            // DesktopTweaks
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(250, 231);
-            Controls.Add(HelpBtn);
-            Controls.Add(BalloonNotis);
-            Controls.Add(ActionCenter);
-            Controls.Add(ShakeMin);
-            Controls.Add(MenuDelay);
-            Controls.Add(ClockSeconds);
-            Controls.Add(TaskbarTrans);
-            Controls.Add(DesktopIndicator);
-            Controls.Add(ApplyButton);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "DesktopTweaks";
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "Desktop Tweaks";
-            ResumeLayout(false);
-            PerformLayout();
+			this.ApplyButton = new System.Windows.Forms.Button();
+			this.DesktopIndicator = new System.Windows.Forms.CheckBox();
+			this.TaskbarTrans = new System.Windows.Forms.CheckBox();
+			this.ClockSeconds = new System.Windows.Forms.CheckBox();
+			this.MenuDelay = new System.Windows.Forms.CheckBox();
+			this.ShakeMin = new System.Windows.Forms.CheckBox();
+			this.ActionCenter = new System.Windows.Forms.CheckBox();
+			this.BalloonNotis = new System.Windows.Forms.CheckBox();
+			this.HelpBtn = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// ApplyButton
+			// 
+			this.ApplyButton.Location = new System.Drawing.Point(140, 169);
+			this.ApplyButton.Name = "ApplyButton";
+			this.ApplyButton.Size = new System.Drawing.Size(64, 24);
+			this.ApplyButton.TabIndex = 4;
+			this.ApplyButton.Text = "Apply";
+			this.ApplyButton.UseVisualStyleBackColor = true;
+			// 
+			// DesktopIndicator
+			// 
+			this.DesktopIndicator.AutoSize = true;
+			this.DesktopIndicator.Location = new System.Drawing.Point(10, 10);
+			this.DesktopIndicator.Name = "DesktopIndicator";
+			this.DesktopIndicator.Size = new System.Drawing.Size(160, 17);
+			this.DesktopIndicator.TabIndex = 1;
+			this.DesktopIndicator.Text = "Hide shortcut indicator icons";
+			this.DesktopIndicator.UseVisualStyleBackColor = true;
+			// 
+			// TaskbarTrans
+			// 
+			this.TaskbarTrans.AutoSize = true;
+			this.TaskbarTrans.Location = new System.Drawing.Point(10, 32);
+			this.TaskbarTrans.Name = "TaskbarTrans";
+			this.TaskbarTrans.Size = new System.Drawing.Size(169, 17);
+			this.TaskbarTrans.TabIndex = 2;
+			this.TaskbarTrans.Text = "Increase taskbar transparency";
+			this.TaskbarTrans.UseVisualStyleBackColor = true;
+			// 
+			// ClockSeconds
+			// 
+			this.ClockSeconds.AutoSize = true;
+			this.ClockSeconds.Location = new System.Drawing.Point(10, 54);
+			this.ClockSeconds.Name = "ClockSeconds";
+			this.ClockSeconds.Size = new System.Drawing.Size(174, 17);
+			this.ClockSeconds.TabIndex = 3;
+			this.ClockSeconds.Text = "Show seconds in taskbar clock";
+			this.ClockSeconds.UseVisualStyleBackColor = true;
+			// 
+			// MenuDelay
+			// 
+			this.MenuDelay.AutoSize = true;
+			this.MenuDelay.Location = new System.Drawing.Point(10, 75);
+			this.MenuDelay.Name = "MenuDelay";
+			this.MenuDelay.Size = new System.Drawing.Size(167, 17);
+			this.MenuDelay.TabIndex = 5;
+			this.MenuDelay.Text = "Decrease context menu delay";
+			this.MenuDelay.UseVisualStyleBackColor = true;
+			// 
+			// ShakeMin
+			// 
+			this.ShakeMin.AutoSize = true;
+			this.ShakeMin.Location = new System.Drawing.Point(10, 97);
+			this.ShakeMin.Name = "ShakeMin";
+			this.ShakeMin.Size = new System.Drawing.Size(147, 17);
+			this.ShakeMin.TabIndex = 6;
+			this.ShakeMin.Text = "Disable shake-to-minimize";
+			this.ShakeMin.UseVisualStyleBackColor = true;
+			// 
+			// ActionCenter
+			// 
+			this.ActionCenter.AutoSize = true;
+			this.ActionCenter.Location = new System.Drawing.Point(10, 119);
+			this.ActionCenter.Name = "ActionCenter";
+			this.ActionCenter.Size = new System.Drawing.Size(193, 17);
+			this.ActionCenter.TabIndex = 7;
+			this.ActionCenter.Text = "Disable action center / notifications";
+			this.ActionCenter.UseVisualStyleBackColor = true;
+			// 
+			// BalloonNotis
+			// 
+			this.BalloonNotis.AutoSize = true;
+			this.BalloonNotis.Location = new System.Drawing.Point(10, 140);
+			this.BalloonNotis.Name = "BalloonNotis";
+			this.BalloonNotis.Size = new System.Drawing.Size(182, 17);
+			this.BalloonNotis.TabIndex = 8;
+			this.BalloonNotis.Text = "Enable old \"balloon\" notifications";
+			this.BalloonNotis.UseVisualStyleBackColor = true;
+			// 
+			// HelpBtn
+			// 
+			this.HelpBtn.Location = new System.Drawing.Point(10, 169);
+			this.HelpBtn.Name = "HelpBtn";
+			this.HelpBtn.Size = new System.Drawing.Size(64, 24);
+			this.HelpBtn.TabIndex = 9;
+			this.HelpBtn.Text = "Help";
+			this.HelpBtn.UseVisualStyleBackColor = true;
+			// 
+			// DesktopTweaks
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(214, 200);
+			this.Controls.Add(this.HelpBtn);
+			this.Controls.Add(this.BalloonNotis);
+			this.Controls.Add(this.ActionCenter);
+			this.Controls.Add(this.ShakeMin);
+			this.Controls.Add(this.MenuDelay);
+			this.Controls.Add(this.ClockSeconds);
+			this.Controls.Add(this.TaskbarTrans);
+			this.Controls.Add(this.DesktopIndicator);
+			this.Controls.Add(this.ApplyButton);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "DesktopTweaks";
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Desktop Tweaks";
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
         }
 
         #endregion

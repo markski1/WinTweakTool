@@ -1,4 +1,6 @@
-﻿namespace WinTweakTool
+﻿using System.Windows.Forms;
+
+namespace WinTweakTool
 {
     partial class MainWindow
     {

@@ -1,5 +1,9 @@
+using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Net.Http;
 using System.Security.Principal;
+using System.Windows.Forms;
 using WinTweakTool.components;
 using Button = System.Windows.Forms.Button;
 
@@ -15,7 +19,7 @@ namespace WinTweakTool
 
             bool isAdmin;
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            WindowsPrincipal principal = new(identity);
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
             isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
             if (!isAdmin)
             {
@@ -39,7 +43,7 @@ namespace WinTweakTool
 
         private void WebLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process browser = new();
+            Process browser = new Process();
             browser.StartInfo.UseShellExecute = true;
             if (Global.updateAvailable)
             {
@@ -54,25 +58,25 @@ namespace WinTweakTool
 
         private void ShutdownSchedButton_Click(object sender, EventArgs e)
         {
-            Shutdown window = new();
+            Shutdown window = new Shutdown();
             OpenWindow(window, (Button)sender);
         }
 
         private void WindowsToolsButton_Click(object sender, EventArgs e)
         {
-            WindowsTools window = new();
+            WindowsTools window = new WindowsTools();
             OpenWindow(window, (Button)sender);
         }
 
         private void DesktopTweaksButton_Click(object sender, EventArgs e)
         {
-            DesktopTweaks window = new();
+            DesktopTweaks window = new DesktopTweaks();
             OpenWindow(window, (Button)sender);
         }
 
         private void CommonTweaksButton_Click(object sender, EventArgs e)
         {
-            SystemTweaks window = new();
+            SystemTweaks window = new SystemTweaks();
             OpenWindow(window, (Button)sender);
         }
 
@@ -91,7 +95,7 @@ namespace WinTweakTool
 
         private async void MainWindow_Load(object sender, EventArgs e)
         {
-            HttpClient client = new();
+            HttpClient client = new HttpClient();
 
             // attempt to fetch last version
             try
@@ -110,6 +114,12 @@ namespace WinTweakTool
                     WebLink.LinkColor = Color.Green;
                     Global.updateAvailable = true;
                 }
+
+                if (lastVer < currVer)
+                {
+					WebLink.Text += "\nUsing newer than official version.";
+					WebLink.Location = new System.Drawing.Point(10, 245);
+				}
             }
             catch
             {

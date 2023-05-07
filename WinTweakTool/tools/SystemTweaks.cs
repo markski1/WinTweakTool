@@ -1,4 +1,6 @@
-﻿using WinTweakTool.components;
+﻿using System;
+using System.Windows.Forms;
+using WinTweakTool.components;
 
 namespace WinTweakTool
 {
@@ -89,7 +91,7 @@ namespace WinTweakTool
             }
 
             // check for verbose mode
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\WOW6432Node\\Microsoft", "VerboseStatus", 32);
+            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "VerboseStatus", 32);
             if (enabled)
             {
                 VerboseMode.Checked = true;
@@ -215,10 +217,10 @@ namespace WinTweakTool
 
             // Enable verbose mode
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\WOW6432Node\\Microsoft",
-                keyName: "VerboseMode",
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+                keyName: "VerboseStatus",
                 setValue: 32,
-                userChoise: ModernStandby.Checked,
+                userChoise: VerboseMode.Checked,
                 errName: "CT10",
                 localMachine: true);
 
