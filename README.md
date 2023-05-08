@@ -10,11 +10,11 @@ Check the [releases](https://github.com/markski1/WinTweakTool/releases) page and
 
 ### Build it
 
-Building WTTk is trivial. Simply open the solution file and compile it. No 3rd party packages are used.
+WTTk is a .NET Framework 4.8 application with no 3rd party dependencies, thus building it is trivial. Simply open the solution file and compile it.
 
 The release executable is compiled with the following dotnet publish command
 ```
-dotnet publish WinTweakToolApp --no-self-contained --runtime win-x64 -p:PublishReadyToRun=true -p:PublishSingleFile=true -c Release
+dotnet publish WinTweakToolApp --no-self-contained --runtime win-x86 -p:PublishReadyToRun=true -c Release
 ```
 
 ### Collaborate
