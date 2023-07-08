@@ -6,6 +6,18 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationManifest>assets\app.manifest</ApplicationManifest>
     <ApplicationIcon>assets\iconFull.ico</ApplicationIcon>
+	<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+	<StartupObject>WinTweakTool.Program</StartupObject>
+	<PlatformTarget>AnyCPU</PlatformTarget>
+	<BaseOutputPath>C:\Users\Markski\Desktop\WTTk</BaseOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,5 +27,9 @@
   <ItemGroup>
     <Reference Include="System.Net.Http" />
   </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+	</ItemGroup>
 
 </Project>

@@ -275,5 +275,5 @@ Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prev
 Shows more detail of what is really happening in certain cases, for example when the computer is booting up and shutting down."
                 );
         }
-    }
+	}
 }

@@ -60,10 +60,5 @@ namespace WinTweakTool
 
 			MessageBox.Show($"The scheduled shutdown (if any) has been cancelled.");
 		}
-
-		private void Shutdown_Load(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

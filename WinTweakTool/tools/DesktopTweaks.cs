@@ -160,5 +160,6 @@ Disables the Windows 10 notification bar.
 Shows notifications as a balloon in the taskbar, like in older versions of Windows."
                 );
         }
-    }
+
+	}
 }

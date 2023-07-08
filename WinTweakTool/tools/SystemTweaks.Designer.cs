@@ -54,6 +54,7 @@ namespace WinTweakTool
 			this.ApplyBtn.TabIndex = 12;
 			this.ApplyBtn.Text = "Apply";
 			this.ApplyBtn.UseVisualStyleBackColor = true;
+			this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
 			// 
 			// WinMan
 			// 
@@ -74,6 +75,7 @@ namespace WinTweakTool
 			this.WinDef.TabIndex = 3;
 			this.WinDef.Text = "Disable Windows defender";
 			this.WinDef.UseVisualStyleBackColor = true;
+			this.WinDef.CheckedChanged += new System.EventHandler(this.WinDef_CheckedChanged);
 			// 
 			// Cortana
 			// 
@@ -143,6 +145,7 @@ namespace WinTweakTool
 			this.HelpBtn.TabIndex = 0;
 			this.HelpBtn.Text = "Help";
 			this.HelpBtn.UseVisualStyleBackColor = true;
+			this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
 			// 
 			// UpdateDrivers
 			// 

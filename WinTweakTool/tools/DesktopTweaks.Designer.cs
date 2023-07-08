@@ -50,6 +50,7 @@ namespace WinTweakTool
 			this.ApplyButton.TabIndex = 4;
 			this.ApplyButton.Text = "Apply";
 			this.ApplyButton.UseVisualStyleBackColor = true;
+			this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
 			// 
 			// DesktopIndicator
 			// 
