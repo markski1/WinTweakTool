@@ -130,6 +130,7 @@ namespace WinTweakTool
 			this.HelpBtn.TabIndex = 9;
 			this.HelpBtn.Text = "Help";
 			this.HelpBtn.UseVisualStyleBackColor = true;
+			this.HelpBtn.Click += new System.EventHandler(this.HelpBtn_Click);
 			// 
 			// DesktopTweaks
 			// 
