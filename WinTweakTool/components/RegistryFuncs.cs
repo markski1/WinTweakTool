@@ -35,15 +35,18 @@ namespace WinTweakTool.components
 
 			if (localMachine)
 			{
-                key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(subKey, true);
+				key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(subKey, true);
+                if (key is null) key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(subKey, true);
             }
             else
 			{
 				key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(subKey, true);
-			}
+				if (key is null) key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(subKey, true);
+            }
 
             if (key is null)
 			{
+				
 				MessageBox.Show($"Sorry, there was an error accessing certain registry information. Please report this error: {errName}");
 				return;
 			}
