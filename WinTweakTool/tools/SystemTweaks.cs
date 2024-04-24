@@ -14,18 +14,18 @@ namespace WinTweakTool
             // this will reflect if boxes should be checked or not.
 
             // check if Windows Maintenance is already disabled.
-            WinMan.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", "MaintenanceDisabled", 1); ;
+            WinMan.Checked = RegistryFuncs.CheckLocalMachine("Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", "MaintenanceDisabled", 1); ;
 
             // check if Windows Defender is already disabled.
-            WinDef.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows Defender", "DisableAntiSpyware", 1);
+            WinDef.Checked = RegistryFuncs.CheckLocalMachine("Software\\Policies\\Microsoft\\Windows Defender", "DisableAntiSpyware", 1);
 
             // check if Cortana is already disabled.
-            Cortana.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", 0)
-                            && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "CortanaConsent", 0);
+            Cortana.Checked = RegistryFuncs.CheckLocalMachine("Software\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", 0)
+                            && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Search", "CortanaConsent", 0);
 
             // check if web search is already disabled.
-            SearchNet.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1)
-                                && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "BingSearchEnabled", 0);
+            SearchNet.Checked = RegistryFuncs.CheckLocalMachine("Software\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1)
+                                && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Search", "BingSearchEnabled", 0);
 
             // check if startup delay is already set to 0
             StartupDelay.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize", "StartupDelayInMSec", 0);
@@ -37,26 +37,28 @@ namespace WinTweakTool
             ErrorReporting.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\Windows Error Reporting", "Disabled", 1);
 
             // check if app suggestions is already disabled.
-            StartSuggestions.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent", "DisableWindowsConsumerFeatures", 1);
+            StartSuggestions.Checked = RegistryFuncs.CheckLocalMachine("Software\\Policies\\Microsoft\\Windows\\CloudContent", "DisableWindowsConsumerFeatures", 1);
 
             // check if updating drivers is already disabled
-            UpdateDrivers.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
+            UpdateDrivers.Checked = RegistryFuncs.CheckLocalMachine("Software\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
 
             // check if windows modern standby is already disabled
             ModernStandby.Checked = RegistryFuncs.CheckLocalMachine("System\\CurrentControlSet\\Control\\Power", "PlatformAoAcOverride", 0);
 
             // check for verbose mode
-            VerboseMode.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "VerboseStatus", 32);
+            VerboseMode.Checked = RegistryFuncs.CheckLocalMachine("Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "VerboseStatus", 32);
 
             // check if gamebar already disabled
-            DisableGameBar.Checked = RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "AppCaptureEnabled", 0)
-                                     && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "HistoricalCaptureEnabled", 0);
+            DisableGameBar.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "AppCaptureEnabled", 0)
+                                     && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "HistoricalCaptureEnabled", 0)
+                                     && RegistryFuncs.CheckCurrentUser("System\\GameConfigStore", "GameDVR_Enabled", 0)
+                                     && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\GameBar", "UseNexusForGameBarEnabled", 0);
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
         {
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance",
+                subKey: "Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance",
                 keyName: "MaintenanceDisabled",
                 setValue: 1,
                 userChoise: WinMan.Checked,
@@ -66,7 +68,7 @@ namespace WinTweakTool
 
             // Windows Defender option
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows Defender",
+                subKey: "Software\\Policies\\Microsoft\\Windows Defender",
                 keyName: "DisableAntiSpyware",
                 setValue: 1,
                 userChoise: WinDef.Checked,
@@ -75,7 +77,7 @@ namespace WinTweakTool
 
             // Disable Cortana option
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+                subKey: "Software\\Policies\\Microsoft\\Windows\\Windows Search",
                 keyName: "AllowCortana",
                 setValue: 0,
                 userChoise: Cortana.Checked,
@@ -83,7 +85,7 @@ namespace WinTweakTool
                 localMachine: true);
 
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Search",
                 keyName: "CortanaConsent",
                 setValue: 0,
                 userChoise: Cortana.Checked,
@@ -94,7 +96,7 @@ namespace WinTweakTool
             // Disable search internet suggestions option
             // No need to re-set key
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+                subKey: "Software\\Policies\\Microsoft\\Windows\\Windows Search",
                 keyName: "DisableWebSearch",
                 setValue: 1,
                 userChoise: SearchNet.Checked,
@@ -102,7 +104,7 @@ namespace WinTweakTool
                 localMachine: true);
 
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Search",
                 keyName: "BingSearchEnabled",
                 setValue: 0,
                 userChoise: SearchNet.Checked,
@@ -142,7 +144,7 @@ namespace WinTweakTool
 
             // Disable app suggestion on start option
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+                subKey: "Software\\Policies\\Microsoft\\Windows\\CloudContent",
                 keyName: "DisableWindowsConsumerFeatures",
                 setValue: 1,
                 userChoise: StartSuggestions.Checked,
@@ -152,7 +154,7 @@ namespace WinTweakTool
 
             // Disable windows update also updating drivers
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+                subKey: "Software\\Policies\\Microsoft\\Windows\\WindowsUpdate",
                 keyName: "ExcludeWUDriversInQualityUpdate",
                 setValue: 1,
                 userChoise: UpdateDrivers.Checked,
@@ -172,7 +174,7 @@ namespace WinTweakTool
 
             // Enable verbose mode
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
                 keyName: "VerboseStatus",
                 setValue: 32,
                 userChoise: VerboseMode.Checked,
@@ -180,8 +182,9 @@ namespace WinTweakTool
                 localMachine: true);
 
             // Disable Game Bar
+            // Must disable 4 separate things.
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
                 keyName: "AppCaptureEnabled",
                 setValue: 0,
                 userChoise: DisableGameBar.Checked,
@@ -189,11 +192,27 @@ namespace WinTweakTool
                 localMachine: false);
 
             RegistryFuncs.SetRegistryValue(
-                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
                 keyName: "HistoricalCaptureEnabled",
                 setValue: 0,
                 userChoise: DisableGameBar.Checked,
                 errName: "CT12-B",
+                localMachine: false);
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "System\\GameConfigStore",
+                keyName: "GameDVR_Enabled",
+                setValue: 0,
+                userChoise: DisableGameBar.Checked,
+                errName: "CT12-C",
+                localMachine: false);
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\GameBar",
+                keyName: "UseNexusForGameBarEnabled",
+                setValue: 0,
+                userChoise: DisableGameBar.Checked,
+                errName: "CT12-D",
                 localMachine: false);
 
             MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
