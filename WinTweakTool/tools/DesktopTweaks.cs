@@ -22,52 +22,25 @@ namespace WinTweakTool
                 enabled = false;
             }
 
-            if (enabled)
-            {
-                DesktopIndicator.Checked = true;
-            }
+            DesktopIndicator.Checked = enabled;
 
             // check if taskbar transparency is increased.
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "UseOLEDTaskbarTransparency", 1);
-            if (enabled)
-            {
-                TaskbarTrans.Checked = true;
-            }
+            TaskbarTrans.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "UseOLEDTaskbarTransparency", 1);
 
             // check if taskbar clock is already showing seconds
-            enabled = RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "ShowSecondsInSystemClock", 1);
-            if (enabled)
-            {
-                ClockSeconds.Checked = true;
-            }
+            ClockSeconds.Checked = RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "ShowSecondsInSystemClock", 1);
 
             // if menu delay is set to 400, then the tweak is NOT set.
-            enabled = RegistryFuncs.CheckCurrentUser("Control Panel\\Desktop", "MenuShowDelay", 400);
-            if (!enabled)
-            {
-                MenuDelay.Checked = true;
-            }
+            MenuDelay.Checked = !(RegistryFuncs.CheckCurrentUser("Control Panel\\Desktop", "MenuShowDelay", 400));
 
             // check if shake-to-minimize is disabled
-            enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "DisallowShaking", 1);
-            if (enabled)
-            {
-                ShakeMin.Checked = true;
-            }
+            ShakeMin.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "DisallowShaking", 1);
 
             // check if action center is disabled
-            enabled = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows", "DisableNotificationCenter", 1);
-            if (enabled)
-            {
-                ActionCenter.Checked = true;
-            }
+            ActionCenter.Checked = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows", "DisableNotificationCenter", 1);
 
             // check if balloon notis are enabled
-            enabled = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\Explorer", "EnableLegacyBalloonNotifications", 1);
-            if (enabled)
-            {
-                BalloonNotis.Checked = true;
-            }
+            BalloonNotis.Checked = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\Explorer", "EnableLegacyBalloonNotifications", 1);
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)

@@ -13,89 +13,44 @@ namespace WinTweakTool
             // check all the registry keys for changes already made.
             // this will reflect if boxes should be checked or not.
 
-            bool enabled;
-
             // check if Windows Maintenance is already disabled.
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", "MaintenanceDisabled", 1);
-            if (enabled)
-            {
-                WinMan.Checked = true;
-            }
+            WinMan.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance", "MaintenanceDisabled", 1); ;
 
             // check if Windows Defender is already disabled.
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows Defender", "DisableAntiSpyware", 1);
-            if (enabled)
-            {
-                WinDef.Checked = true;
-            }
+            WinDef.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows Defender", "DisableAntiSpyware", 1);
 
             // check if Cortana is already disabled.
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", 0);
-            enabled = enabled && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "CortanaConsent", 0);
-
-            if (enabled)
-            {
-                Cortana.Checked = true;
-            }
+            Cortana.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "AllowCortana", 0)
+                            && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "CortanaConsent", 0);
 
             // check if web search is already disabled.
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1);
-            enabled = enabled && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "BingSearchEnabled", 0);
-
-            if (enabled)
-            {
-                SearchNet.Checked = true;
-            }
+            SearchNet.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search", "DisableWebSearch", 1)
+                                && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search", "BingSearchEnabled", 0);
 
             // check if startup delay is already set to 0
-
-            enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize", "StartupDelayInMSec", 0);
-            if (enabled)
-            {
-                StartupDelay.Checked = true;
-            }
+            StartupDelay.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize", "StartupDelayInMSec", 0);
 
             // check if app tracking is already disabled
-            enabled = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", 1);
-            if (enabled)
-            {
-                AppTracking.Checked = true;
-            }
+            AppTracking.Checked = RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\EdgeUI", "DisableMFUTracking", 1);
 
             // check if error reporting is already disabled
-            enabled = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\Windows Error Reporting", "Disabled", 1);
-            if (enabled)
-            {
-                ErrorReporting.Checked = true;
-            }
+            ErrorReporting.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\Windows Error Reporting", "Disabled", 1);
 
             // check if app suggestions is already disabled.
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent", "DisableWindowsConsumerFeatures", 1);
-            if (enabled)
-            {
-                StartSuggestions.Checked = true;
-            }
+            StartSuggestions.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent", "DisableWindowsConsumerFeatures", 1);
 
             // check if updating drivers is already disabled
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
-            if (enabled)
-            {
-                UpdateDrivers.Checked = true;
-            }
+            UpdateDrivers.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate", "ExcludeWUDriversInQualityUpdate", 1);
 
             // check if windows modern standby is already disabled
-            enabled = RegistryFuncs.CheckLocalMachine("System\\CurrentControlSet\\Control\\Power", "PlatformAoAcOverride", 0);
-            if (enabled)
-            {
-                ModernStandby.Checked = true;
-            }
+            ModernStandby.Checked = RegistryFuncs.CheckLocalMachine("System\\CurrentControlSet\\Control\\Power", "PlatformAoAcOverride", 0);
 
             // check for verbose mode
-            enabled = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "VerboseStatus", 32);
-            if (enabled)
-            {
-                VerboseMode.Checked = true;
-            }
+            VerboseMode.Checked = RegistryFuncs.CheckLocalMachine("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", "VerboseStatus", 32);
+
+            // check if gamebar already disabled
+            DisableGameBar.Checked = RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "AppCaptureEnabled", 0)
+                                     && RegistryFuncs.CheckCurrentUser("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "HistoricalCaptureEnabled", 0);
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
@@ -221,9 +176,25 @@ namespace WinTweakTool
                 keyName: "VerboseStatus",
                 setValue: 32,
                 userChoise: VerboseMode.Checked,
-                errName: "CT10",
+                errName: "CT11",
                 localMachine: true);
 
+            // Disable Game Bar
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+                keyName: "AppCaptureEnabled",
+                setValue: 0,
+                userChoise: DisableGameBar.Checked,
+                errName: "CT12-A",
+                localMachine: false);
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+                keyName: "HistoricalCaptureEnabled",
+                setValue: 0,
+                userChoise: DisableGameBar.Checked,
+                errName: "CT12-B",
+                localMachine: false);
 
             MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
         }
@@ -271,9 +242,12 @@ Windows Update will attempt to update some system drivers at times. Disable if y
 - Disable Windows Modern Standby
 Force use of S3 sleep instead of S0 when sleeping or hibernating. This will prevent battery draining and heat on laptops while they're off. This might cause BSODs on laptops which don't support S3
 
+- Disable Windows GameBar
+Disables the Windows + G shortcut and GameBar functionality. Might need a system restart.
+
 - Enable verbose mode
 Shows more detail of what is really happening in certain cases, for example when the computer is booting up and shutting down."
                 );
         }
-	}
+    }
 }
