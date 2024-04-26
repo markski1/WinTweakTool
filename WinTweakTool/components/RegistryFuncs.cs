@@ -29,7 +29,7 @@ namespace WinTweakTool.components
 			return false;
 		}
 
-		public static void SetRegistryValue(string subKey, string keyName, bool userChoise, string errName, bool localMachine, int? setValue = null, string setStrValue = null, int? unSetValue = null)
+		public static void SetRegistryValue(string subKey, string keyName, bool userChoise, string errName, bool localMachine, int? setValue = null, int? unSetValue = null, string setStrValue = null)
 		{
             Microsoft.Win32.RegistryKey key;
 

@@ -53,6 +53,13 @@ namespace WinTweakTool
                                      && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR", "HistoricalCaptureEnabled", 0)
                                      && RegistryFuncs.CheckCurrentUser("System\\GameConfigStore", "GameDVR_Enabled", 0)
                                      && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\GameBar", "UseNexusForGameBarEnabled", 0);
+
+            // check if copilot already disabled
+            DisableCopilot.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "ShowCopilotButton", 0)
+                                     && RegistryFuncs.CheckCurrentUser("Software\\Policies\\Microsoft\\Windows\\WindowsCopilot", "TurnOffWindowsCopilot", 1);
+
+            DisableLockscreenTips.Checked = RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "SubscribedContent-338387Enabled", 0)
+                                            && RegistryFuncs.CheckCurrentUser("Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager", "RotatingLockScreenOverlayEnabled", 0);
         }
 
         private void ApplyBtn_Click(object sender, EventArgs e)
@@ -61,6 +68,7 @@ namespace WinTweakTool
                 subKey: "Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\Maintenance",
                 keyName: "MaintenanceDisabled",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: WinMan.Checked,
                 errName: "CT1",
                 localMachine: true);
@@ -71,6 +79,7 @@ namespace WinTweakTool
                 subKey: "Software\\Policies\\Microsoft\\Windows Defender",
                 keyName: "DisableAntiSpyware",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: WinDef.Checked,
                 errName: "CT2",
                 localMachine: true);
@@ -80,6 +89,7 @@ namespace WinTweakTool
                 subKey: "Software\\Policies\\Microsoft\\Windows\\Windows Search",
                 keyName: "AllowCortana",
                 setValue: 0,
+                unSetValue: 1,
                 userChoise: Cortana.Checked,
                 errName: "CT3-4",
                 localMachine: true);
@@ -88,6 +98,7 @@ namespace WinTweakTool
                 subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Search",
                 keyName: "CortanaConsent",
                 setValue: 0,
+                unSetValue: 1,
                 userChoise: Cortana.Checked,
                 errName: "CT3-4-1",
                 localMachine: false);
@@ -99,6 +110,7 @@ namespace WinTweakTool
                 subKey: "Software\\Policies\\Microsoft\\Windows\\Windows Search",
                 keyName: "DisableWebSearch",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: SearchNet.Checked,
                 errName: "CT3-4",
                 localMachine: true);
@@ -107,6 +119,7 @@ namespace WinTweakTool
                 subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Search",
                 keyName: "BingSearchEnabled",
                 setValue: 0,
+                unSetValue: 1,
                 userChoise: SearchNet.Checked,
                 errName: "CT3-4-1",
                 localMachine: false);
@@ -127,6 +140,7 @@ namespace WinTweakTool
                 subKey: "Software\\Policies\\Microsoft\\Windows\\EdgeUI",
                 keyName: "DisableMFUTracking",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: AppTracking.Checked,
                 errName: "CT6",
                 localMachine: false);
@@ -137,6 +151,7 @@ namespace WinTweakTool
                 subKey: "Software\\Microsoft\\Windows\\Windows Error Reporting",
                 keyName: "Disabled",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: ErrorReporting.Checked,
                 errName: "CT7",
                 localMachine: false);
@@ -147,6 +162,7 @@ namespace WinTweakTool
                 subKey: "Software\\Policies\\Microsoft\\Windows\\CloudContent",
                 keyName: "DisableWindowsConsumerFeatures",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: StartSuggestions.Checked,
                 errName: "CT8",
                 localMachine: true);
@@ -157,6 +173,7 @@ namespace WinTweakTool
                 subKey: "Software\\Policies\\Microsoft\\Windows\\WindowsUpdate",
                 keyName: "ExcludeWUDriversInQualityUpdate",
                 setValue: 1,
+                unSetValue: 0,
                 userChoise: UpdateDrivers.Checked,
                 errName: "CT9",
                 localMachine: true);
@@ -213,6 +230,41 @@ namespace WinTweakTool
                 setValue: 0,
                 userChoise: DisableGameBar.Checked,
                 errName: "CT12-D",
+                localMachine: false);
+
+            // Disable Copilot
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+                keyName: "ShowCopilotButton",
+                setValue: 0,
+                userChoise: DisableCopilot.Checked,
+                errName: "CT13-A",
+                localMachine: false);
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+                keyName: "TurnOffWindowsCopilot",
+                setValue: 1,
+                unSetValue: 0,
+                userChoise: DisableCopilot.Checked,
+                errName: "CT13-B",
+                localMachine: false);
+
+            // Disable lockscreen tips
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+                keyName: "SubscribedContent-338387Enabled",
+                setValue: 0,
+                userChoise: DisableCopilot.Checked,
+                errName: "CT14-A",
+                localMachine: false);
+
+            RegistryFuncs.SetRegistryValue(
+                subKey: "Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+                keyName: "RotatingLockScreenOverlayEnabled",
+                setValue: 0,
+                userChoise: DisableCopilot.Checked,
+                errName: "CT14-B",
                 localMachine: false);
 
             MessageBox.Show("Changes applied.\n\nA system restart might be needed.");
