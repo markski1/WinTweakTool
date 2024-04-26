@@ -42,6 +42,7 @@ namespace WinTweakTool
             this.WebLink = new System.Windows.Forms.LinkLabel();
             this.NotAdminText = new System.Windows.Forms.Label();
             this.TweaksDontApply = new System.Windows.Forms.Label();
+            this.DebloaterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DesktopTweaksButton
@@ -66,7 +67,7 @@ namespace WinTweakTool
             // 
             // WindowsToolsButton
             // 
-            this.WindowsToolsButton.Location = new System.Drawing.Point(178, 188);
+            this.WindowsToolsButton.Location = new System.Drawing.Point(178, 233);
             this.WindowsToolsButton.Name = "WindowsToolsButton";
             this.WindowsToolsButton.Size = new System.Drawing.Size(194, 39);
             this.WindowsToolsButton.TabIndex = 5;
@@ -79,13 +80,13 @@ namespace WinTweakTool
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 15);
+            this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "WindowsTweakToolkit\r";
             // 
             // RestartExplorerButton
             // 
-            this.RestartExplorerButton.Location = new System.Drawing.Point(178, 136);
+            this.RestartExplorerButton.Location = new System.Drawing.Point(178, 181);
             this.RestartExplorerButton.Name = "RestartExplorerButton";
             this.RestartExplorerButton.Size = new System.Drawing.Size(194, 39);
             this.RestartExplorerButton.TabIndex = 4;
@@ -95,7 +96,7 @@ namespace WinTweakTool
             // 
             // ShutdownSchedButton
             // 
-            this.ShutdownSchedButton.Location = new System.Drawing.Point(178, 238);
+            this.ShutdownSchedButton.Location = new System.Drawing.Point(178, 283);
             this.ShutdownSchedButton.Name = "ShutdownSchedButton";
             this.ShutdownSchedButton.Size = new System.Drawing.Size(194, 39);
             this.ShutdownSchedButton.TabIndex = 6;
@@ -106,9 +107,9 @@ namespace WinTweakTool
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(4, 104);
+            this.label3.Location = new System.Drawing.Point(4, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(375, 19);
             this.label3.TabIndex = 9;
@@ -119,7 +120,7 @@ namespace WinTweakTool
             this.WinVerText.AutoSize = true;
             this.WinVerText.Location = new System.Drawing.Point(10, 86);
             this.WinVerText.Name = "WinVerText";
-            this.WinVerText.Size = new System.Drawing.Size(47, 15);
+            this.WinVerText.Size = new System.Drawing.Size(45, 13);
             this.WinVerText.TabIndex = 10;
             this.WinVerText.Text = "WinVer:";
             // 
@@ -129,9 +130,9 @@ namespace WinTweakTool
             this.WebLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WebLink.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.WebLink.LinkColor = System.Drawing.Color.Navy;
-            this.WebLink.Location = new System.Drawing.Point(10, 262);
+            this.WebLink.Location = new System.Drawing.Point(10, 307);
             this.WebLink.Name = "WebLink";
-            this.WebLink.Size = new System.Drawing.Size(101, 15);
+            this.WebLink.Size = new System.Drawing.Size(91, 13);
             this.WebLink.TabIndex = 7;
             this.WebLink.TabStop = true;
             this.WebLink.Text = "https://markski.ar";
@@ -143,25 +144,36 @@ namespace WinTweakTool
             this.NotAdminText.AutoSize = true;
             this.NotAdminText.Location = new System.Drawing.Point(10, 49);
             this.NotAdminText.Name = "NotAdminText";
-            this.NotAdminText.Size = new System.Drawing.Size(106, 15);
+            this.NotAdminText.Size = new System.Drawing.Size(95, 13);
             this.NotAdminText.TabIndex = 12;
             this.NotAdminText.Text = "Running as admin.";
             // 
             // TweaksDontApply
             // 
             this.TweaksDontApply.AutoSize = true;
-            this.TweaksDontApply.Location = new System.Drawing.Point(9, 144);
+            this.TweaksDontApply.Location = new System.Drawing.Point(9, 189);
             this.TweaksDontApply.Name = "TweaksDontApply";
-            this.TweaksDontApply.Size = new System.Drawing.Size(162, 60);
+            this.TweaksDontApply.Size = new System.Drawing.Size(144, 52);
             this.TweaksDontApply.TabIndex = 13;
             this.TweaksDontApply.Text = "If tweaks don\'t apply, click ->\r\n\r\nIf that doesn\'t work, you may\r\nneed to restart" +
     " your system.";
+            // 
+            // DebloaterButton
+            // 
+            this.DebloaterButton.Location = new System.Drawing.Point(178, 114);
+            this.DebloaterButton.Name = "DebloaterButton";
+            this.DebloaterButton.Size = new System.Drawing.Size(194, 39);
+            this.DebloaterButton.TabIndex = 14;
+            this.DebloaterButton.Text = "Debloater";
+            this.DebloaterButton.UseVisualStyleBackColor = true;
+            this.DebloaterButton.Click += new System.EventHandler(this.DebloaterButton_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(384, 284);
+            this.ClientSize = new System.Drawing.Size(384, 332);
+            this.Controls.Add(this.DebloaterButton);
             this.Controls.Add(this.TweaksDontApply);
             this.Controls.Add(this.NotAdminText);
             this.Controls.Add(this.WebLink);
@@ -197,5 +209,6 @@ namespace WinTweakTool
         private LinkLabel WebLink;
         private Label NotAdminText;
         private Label TweaksDontApply;
+        private Button DebloaterButton;
     }
 }

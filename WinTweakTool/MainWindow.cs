@@ -80,6 +80,12 @@ namespace WinTweakTool
             OpenWindow(window, (Button)sender);
         }
 
+        private void DebloaterButton_Click(object sender, EventArgs e)
+        {
+            SystemTweaks window = new SystemTweaks();
+            OpenWindow(window, (Button)sender);
+        }
+
         private static void OpenWindow(Form window, Button btn)
         {
             window.FormClosed += (sender, e) => WindowClosed(window, btn);
